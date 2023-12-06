@@ -1,0 +1,16 @@
+/* persian font: 
+        1.copy to public folder
+        2.@import url("/fonts.css")
+        3.body {font-family: "Vazir"}
+        4.checkout tailwind config
+*/
+@import url("/fonts.css");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  font-family: "Vazir";
+}
