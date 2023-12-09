@@ -1,8 +1,6 @@
-import type { Config } from "tailwindcss";
 import { fontFamily } from "tailwindcss/defaultTheme";
-import { RecursiveKeyValuePair } from "tailwindcss/types/config";
 
-function withOpacity(variableName: string): string | RecursiveKeyValuePair<string, string> {
+function withOpacity(variableName) {
   return ({ opacityValue }) => {
     if (opacityValue !== undefined) {
       return `rgba(var(${variableName}), ${opacityValue})`;
@@ -11,7 +9,7 @@ function withOpacity(variableName: string): string | RecursiveKeyValuePair<strin
   };
 }
 
-const config: Config = {
+const config = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./features/**/*.{js,ts,jsx,tsx,mdx}",

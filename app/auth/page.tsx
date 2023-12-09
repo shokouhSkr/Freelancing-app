@@ -4,7 +4,7 @@ const AuthPage = () => {
   return (
     <div className="container max-w-md">
       <SendOTPForm />
-      {/* <CheckOTPForm /> */}
+      <CheckOTPForm />
     </div>
   );
 };
