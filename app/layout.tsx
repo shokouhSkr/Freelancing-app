@@ -10,8 +10,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="fa" dir="rtl">
-      <body className="">
-        <Providers>{children}</Providers>
+      <body>
+        <Providers>
+          <div className="xl:container xl:max-w-screen-xl">{children}</div>
+        </Providers>
       </body>
     </html>
   );
