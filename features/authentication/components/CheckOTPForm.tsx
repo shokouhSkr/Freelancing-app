@@ -6,17 +6,12 @@ import OTPInput from "react-otp-input";
 const CheckOTPForm = () => {
   const [otp, setOtp] = useState("");
 
-  // const checkOTPAction = async (formData: FormData) => {
-  //   "use server";
-  //   const phoneNumber = formData.get("phoneNumber");
-  //   console.log("phone: ", phoneNumber);
-  // };
+  const checkOTPHandler = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+  };
 
   return (
-    <form
-      // action={checkOTPAction}
-      className="pt-10 p-4 space-y-6"
-    >
+    <form onSubmit={checkOTPHandler} className="pt-10 p-4 space-y-6">
       <p className="text-secondary-800">کد تایید را وارد کنید</p>
       <OTPInput
         value={otp}
@@ -30,7 +25,9 @@ const CheckOTPForm = () => {
           padding: "0.5rem 0.2rem",
         }}
       />
-      <button className="btn">اعتبار سنجی کد</button>
+      <button type="submit" className="btn">
+        اعتبار سنجی کد
+      </button>
     </form>
   );
 };
