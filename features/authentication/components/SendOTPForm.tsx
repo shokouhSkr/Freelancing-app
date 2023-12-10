@@ -1,12 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 import { TextField } from "@/features";
 import { useMutation } from "@tanstack/react-query";
 import { getOtp } from "../services/authService";
 import { toast } from "react-hot-toast";
+import { BeatLoader } from "react-spinners";
 
-const SendOTPForm = () => {
+const SendOTPForm = ({ onSetStep }: { onSetStep: Dispatch<SetStateAction<number>> }) => {
   const [phoneNumber, setPhoneNumber] = useState("");
 
   const { data, isPending, error, mutateAsync } = useMutation({
@@ -23,6 +24,7 @@ const SendOTPForm = () => {
 
       toast.success(data.message);
       setPhoneNumber("");
+      onSetStep(2);
     } catch (error: any) {
       toast.error(error?.response?.data?.message);
     }
@@ -36,8 +38,9 @@ const SendOTPForm = () => {
         value={phoneNumber}
         onChange={(e) => setPhoneNumber(e.target.value)}
       />
+
       <button type="submit" className="btn">
-        ارسال کد تایید
+        {isPending ? <BeatLoader color="#fff" size={8} /> : "ارسال کد تایید"}
       </button>
     </form>
   );

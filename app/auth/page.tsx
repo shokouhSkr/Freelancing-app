@@ -1,10 +1,9 @@
-import { CheckOTPForm, SendOTPForm } from "@/features";
+import { AuthContainer } from "@/features";
 
 const AuthPage = () => {
   return (
-    <div className="container max-w-md">
-      <SendOTPForm />
-      <CheckOTPForm />
+    <div className="flex justify-center pt-10">
+      <AuthContainer />
     </div>
   );
 };
