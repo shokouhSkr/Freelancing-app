@@ -7,9 +7,13 @@ import { getOtp } from "../services/authService";
 import { toast } from "react-hot-toast";
 import { BeatLoader } from "react-spinners";
 
-const SendOTPForm = ({ onSetStep }: { onSetStep: Dispatch<SetStateAction<number>> }) => {
-  const [phoneNumber, setPhoneNumber] = useState("");
+interface SendOTPPropType {
+  phoneNumber: string;
+  onSetStep: Dispatch<SetStateAction<number>>;
+  setPhoneNumber: Dispatch<SetStateAction<string>>;
+}
 
+const SendOTPForm = ({ onSetStep, phoneNumber, setPhoneNumber }: SendOTPPropType) => {
   const { data, isPending, error, mutateAsync } = useMutation({
     mutationFn: getOtp,
   });
@@ -20,7 +24,7 @@ const SendOTPForm = ({ onSetStep }: { onSetStep: Dispatch<SetStateAction<number>
     try {
       const res = await mutateAsync({ phoneNumber }); // mutateAsync === getOtp
       const data = res.data.data;
-      console.log("data: ", data.message);
+      console.log("data from sendOTP: ", data.message);
 
       toast.success(data.message);
       setPhoneNumber("");

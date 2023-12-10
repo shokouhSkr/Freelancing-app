@@ -1,13 +1,39 @@
 "use client";
 
 import { useState } from "react";
+import { toast } from "react-hot-toast";
 import OTPInput from "react-otp-input";
+import { useMutation } from "@tanstack/react-query";
+import { checkOtp } from "../services/authService";
+import { useRouter } from "next/navigation";
 
-const CheckOTPForm = () => {
+const CheckOTPForm = ({ phoneNumber }: { phoneNumber: string }) => {
   const [otp, setOtp] = useState("");
+  const router = useRouter();
 
-  const checkOTPHandler = (e: React.FormEvent<HTMLFormElement>) => {
+  const { data, isPending, error, mutateAsync } = useMutation({
+    mutationFn: checkOtp,
+  });
+
+  const checkOTPHandler = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    try {
+      const res = await mutateAsync({ phoneNumber, otp }); // mutateAsync === checkOtp
+      const { message, user } = res.data.data;
+      console.log("data from checkOTP: ", user);
+
+      toast.success(message);
+
+      if (user.isActive) {
+        // if (user.role === "OWNER") router.push("/owner");
+        // if (user.role === "FREELANCER") router.push("/freelancer");
+      } else {
+        router.push("/complete-profile");
+      }
+    } catch (error: any) {
+      toast.error(error?.response?.data?.message);
+    }
   };
 
   return (
