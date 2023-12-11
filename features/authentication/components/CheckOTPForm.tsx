@@ -1,14 +1,23 @@
 "use client";
 
-import { useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 import OTPInput from "react-otp-input";
 import { useMutation } from "@tanstack/react-query";
 import { checkOtp } from "../services/authService";
 import { useRouter } from "next/navigation";
+import { HiArrowRight } from "react-icons/hi";
+import { RESET_TIME } from "@/utils/constants";
 
-const CheckOTPForm = ({ phoneNumber }: { phoneNumber: string }) => {
+interface CheckOTPPropType {
+  phoneNumber: string;
+  onBack: Dispatch<SetStateAction<number>>;
+  onResendOTP: (e: React.MouseEvent<HTMLButtonElement>) => Promise<void>;
+}
+
+const CheckOTPForm = ({ phoneNumber, onBack, onResendOTP }: CheckOTPPropType) => {
   const [otp, setOtp] = useState("");
+  const [time, setTime] = useState(RESET_TIME);
   const router = useRouter();
 
   const { data, isPending, error, mutateAsync } = useMutation({
@@ -36,27 +45,49 @@ const CheckOTPForm = ({ phoneNumber }: { phoneNumber: string }) => {
     }
   };
 
+  useEffect(() => {
+    const timer = time > 0 && setInterval(() => setTime((t) => t - 1), 1000);
+
+    return () => {
+      if (timer) clearInterval(timer);
+    };
+  }, [time]);
+
   return (
-    <form onSubmit={checkOTPHandler} className="pt-10 p-4 space-y-6">
-      <p className="text-secondary-800">کد تایید را وارد کنید</p>
-
-      <OTPInput
-        value={otp}
-        onChange={setOtp}
-        numInputs={6}
-        renderInput={(props) => <input {...props} type="number" className="otp-input" />}
-        renderSeparator={<span className="text-gray-800">-</span>}
-        containerStyle="flex flex-row-reverse gap-1 justify-center"
-        inputStyle={{
-          width: "2.5rem",
-          padding: "0.5rem 0.2rem",
-        }}
-      />
-
-      <button type="submit" className="btn">
-        اعتبار سنجی کد
+    <div className="p-4">
+      <button onClick={() => onBack(1)} className="mb-4">
+        <HiArrowRight />
       </button>
-    </form>
+
+      <form onSubmit={checkOTPHandler} className="space-y-6">
+        <p className="text-secondary-800">کد تایید را وارد کنید</p>
+
+        <OTPInput
+          value={otp}
+          onChange={setOtp}
+          numInputs={6}
+          renderInput={(props) => <input {...props} type="number" className="otp-input" />}
+          renderSeparator={<span className="text-gray-800">-</span>}
+          containerStyle="flex flex-row-reverse gap-1 justify-center"
+          inputStyle={{
+            width: "2.5rem",
+            padding: "0.5rem 0.2rem",
+          }}
+        />
+
+        <div>
+          {time ? (
+            <p>{time} ثانیه تا ارسال مجدد کد</p>
+          ) : (
+            <button onClick={onResendOTP}>ارسال مجدد کد</button>
+          )}
+        </div>
+
+        <button type="submit" className="btn">
+          اعتبار سنجی کد
+        </button>
+      </form>
+    </div>
   );
 };
 
