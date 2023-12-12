@@ -1,21 +1,23 @@
 "use client";
 
-import { Dispatch, SetStateAction, useEffect, useState } from "react";
+import { Dispatch, MouseEventHandler, SetStateAction, useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 import OTPInput from "react-otp-input";
 import { useMutation } from "@tanstack/react-query";
 import { checkOtp } from "../services/authService";
 import { useRouter } from "next/navigation";
 import { HiArrowRight } from "react-icons/hi";
+import { CiEdit } from "react-icons/ci";
 import { RESET_TIME } from "@/utils/constants";
 
 interface CheckOTPPropType {
   phoneNumber: string;
   onBack: Dispatch<SetStateAction<number>>;
   onResendOTP: (e: React.MouseEvent<HTMLButtonElement>) => Promise<void>;
+  otpResponse: any;
 }
 
-const CheckOTPForm = ({ phoneNumber, onBack, onResendOTP }: CheckOTPPropType) => {
+const CheckOTPForm = ({ phoneNumber, onBack, onResendOTP, otpResponse }: CheckOTPPropType) => {
   const [otp, setOtp] = useState("");
   const [time, setTime] = useState(RESET_TIME);
   const router = useRouter();
@@ -82,6 +84,15 @@ const CheckOTPForm = ({ phoneNumber, onBack, onResendOTP }: CheckOTPPropType) =>
             <button onClick={onResendOTP}>ارسال مجدد کد</button>
           )}
         </div>
+
+        {otpResponse && (
+          <p>
+            {otpResponse?.message}
+            <button onClick={() => onBack(1)}>
+              <CiEdit />
+            </button>
+          </p>
+        )}
 
         <button type="submit" className="btn">
           اعتبار سنجی کد

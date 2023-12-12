@@ -8,11 +8,11 @@ import toast from "react-hot-toast";
 import { getOtp } from "../services/authService";
 
 const AuthContainer = () => {
-  const [step, setStep] = useState<number>(1);
+  const [step, setStep] = useState<number>(2);
   const [phoneNumber, setPhoneNumber] = useState<string>("09161111111");
 
   const {
-    data,
+    data: otpResponse,
     isPending: isSendingOTP,
     error,
     mutateAsync,
@@ -52,7 +52,12 @@ const AuthContainer = () => {
 
       case 2:
         return (
-          <CheckOTPForm onResendOTP={sendOTPHandler} onBack={setStep} phoneNumber={phoneNumber} />
+          <CheckOTPForm
+            otpResponse={otpResponse}
+            onResendOTP={sendOTPHandler}
+            onBack={setStep}
+            phoneNumber={phoneNumber}
+          />
         );
 
       default:
