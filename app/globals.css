@@ -100,3 +100,26 @@ input[type="number"] {
     @apply py-2 px-2 text-white bg-primary-900 rounded-lg w-full hover:bg-primary-800 transition-colors duration-200 active:scale-[0.99];
   }
 }
+
+/* input[type="radio"] {
+  display: none;
+}
+
+input[type="radio"] + label:before {
+  content: "";
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-right: 5px;
+  border: 1px solid #000;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 16px;
+  cursor: pointer;
+}
+
+input[type="radio"]:checked + label:before {
+  content: "\2713";
+  background-color: #000;
+  color: #fff;
+} */

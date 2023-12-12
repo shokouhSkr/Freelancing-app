@@ -1,6 +1,6 @@
 "use client";
 
-import { Dispatch, MouseEventHandler, SetStateAction, useEffect, useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 import OTPInput from "react-otp-input";
 import { useMutation } from "@tanstack/react-query";
@@ -9,6 +9,7 @@ import { useRouter } from "next/navigation";
 import { HiArrowRight } from "react-icons/hi";
 import { CiEdit } from "react-icons/ci";
 import { RESET_TIME } from "@/utils/constants";
+import BeatLoader from "react-spinners/BeatLoader";
 
 interface CheckOTPPropType {
   phoneNumber: string;
@@ -22,7 +23,7 @@ const CheckOTPForm = ({ phoneNumber, onBack, onResendOTP, otpResponse }: CheckOT
   const [time, setTime] = useState(RESET_TIME);
   const router = useRouter();
 
-  const { data, isPending, error, mutateAsync } = useMutation({
+  const { data, isPending, mutateAsync } = useMutation({
     mutationFn: checkOtp,
   });
 
@@ -56,7 +57,7 @@ const CheckOTPForm = ({ phoneNumber, onBack, onResendOTP, otpResponse }: CheckOT
   }, [time]);
 
   return (
-    <div className="p-4">
+    <div>
       <button onClick={() => onBack(1)} className="mb-4">
         <HiArrowRight />
       </button>
@@ -95,7 +96,7 @@ const CheckOTPForm = ({ phoneNumber, onBack, onResendOTP, otpResponse }: CheckOT
         )}
 
         <button type="submit" className="btn">
-          اعتبار سنجی کد
+          {isPending ? <BeatLoader color="#fff" size={8} /> : "اعتبارسنجی کد"}
         </button>
       </form>
     </div>

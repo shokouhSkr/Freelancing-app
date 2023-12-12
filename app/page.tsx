@@ -1,5 +1,11 @@
+import { Container } from "@/features";
+
 const HomePage = () => {
-  return <div className="font-bold text-4xl text-primary-300">شروع پروژه</div>;
+  return (
+    <Container>
+      <div className="font-bold text-4xl text-primary-300">شروع پروژه</div>
+    </Container>
+  );
 };
 
 export default HomePage;

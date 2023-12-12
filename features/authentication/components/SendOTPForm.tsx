@@ -1,7 +1,7 @@
 "use client";
 
 import { Dispatch, SetStateAction } from "react";
-import { TextField } from "@/features";
+import { TextInput } from "@/features";
 import { BeatLoader } from "react-spinners";
 
 interface SendOTPPropType {
@@ -18,11 +18,12 @@ const SendOTPForm = ({
   isSendingOTP,
 }: SendOTPPropType) => {
   return (
-    <form onSubmit={onSendOTP} className="p-4 space-y-6">
-      <TextField
+    <form onSubmit={onSendOTP} className="space-y-6">
+      <TextInput
         label="شماره موبایل"
         name="phoneNumber"
         value={phoneNumber}
+        type="number"
         onChange={(e) => onSetPhoneNumber(e.target.value)}
       />
 

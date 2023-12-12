@@ -1,10 +1,12 @@
-import { AuthContainer } from "@/features";
+import { AuthContainer, Container } from "@/features";
 
 const AuthPage = () => {
   return (
-    <div className="flex justify-center pt-10">
-      <AuthContainer />
-    </div>
+    <Container>
+      <div className="flex justify-center pt-10">
+        <AuthContainer />
+      </div>
+    </Container>
   );
 };
 

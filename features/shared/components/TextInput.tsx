@@ -2,17 +2,16 @@ interface TextFieldPropType {
   label: string;
   name: string;
   value: string;
+  type?: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const TextField = ({ label, name, value, onChange }: TextFieldPropType) => {
+const TextField = ({ label, name, value, type = "text", onChange }: TextFieldPropType) => {
   return (
     <div>
-      <label className="text-primary-300" htmlFor={name}>
-        {label}
-      </label>
+      <label htmlFor={name}>{label}</label>
       <input
-        type="number"
+        type={type}
         value={value}
         onChange={onChange}
         name={name}
