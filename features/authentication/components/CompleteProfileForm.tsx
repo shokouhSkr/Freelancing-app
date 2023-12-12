@@ -2,16 +2,36 @@
 
 import { useState } from "react";
 import { RadioInput, TextInput } from "@/features";
+import { useMutation } from "@tanstack/react-query";
+import toast from "react-hot-toast";
+import { BeatLoader } from "react-spinners";
+import { completeProfile } from "../services/authService";
 
 const CompleteProfileForm = () => {
   const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [role, setRole] = useState<string>("OWNER");
 
-  const submitHandler = (e: React.FormEvent<HTMLFormElement>) => {
+  const { data, isPending, mutateAsync } = useMutation({
+    mutationFn: completeProfile,
+  });
+
+  const submitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    console.log("name: ", name, " email: ", email, " role: ", role);
+    try {
+      const res = await mutateAsync({ name, email, role }); // mutateAsync === completeProfile
+      const { message, user } = res.data.data;
+      console.log("data from complete profile: ", user);
+
+      // role => push to profile
+      // status ? 0, 1 or 2
+      // check user status to push to profile or not
+
+      toast.success(message);
+    } catch (error: any) {
+      toast.error(error?.response?.data?.message);
+    }
   };
 
   return (
@@ -46,7 +66,7 @@ const CompleteProfileForm = () => {
         </div>
 
         <button type="submit" className="btn">
-          تایید
+          {isPending ? <BeatLoader color="#fff" size={8} /> : "تایید"}
         </button>
       </form>
     </div>
