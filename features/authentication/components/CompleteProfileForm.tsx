@@ -6,11 +6,13 @@ import { useMutation } from "@tanstack/react-query";
 import toast from "react-hot-toast";
 import { BeatLoader } from "react-spinners";
 import { completeProfile } from "../services/authService";
+import { useRouter } from "next/navigation";
 
 const CompleteProfileForm = () => {
   const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [role, setRole] = useState<string>("OWNER");
+  const router = useRouter();
 
   const { data, isPending, mutateAsync } = useMutation({
     mutationFn: completeProfile,
@@ -23,12 +25,18 @@ const CompleteProfileForm = () => {
       const res = await mutateAsync({ name, email, role }); // mutateAsync === completeProfile
       const { message, user } = res.data.data;
       console.log("data from complete profile: ", user);
+      toast.success(message);
 
       // role => push to profile
       // status ? 0, 1 or 2
       // check user status to push to profile or not
-
-      toast.success(message);
+      if (user.statue !== 2) {
+        toast("پروفایل شما در انتظار تایید است", { icon: "😍" });
+        router.push("/");
+        return;
+      }
+      if (user.role === "OWNER") return router.push("/owner");
+      if (user.role === "FREELANCER") return router.push("/freelancer");
     } catch (error: any) {
       toast.error(error?.response?.data?.message);
     }

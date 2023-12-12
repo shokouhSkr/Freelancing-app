@@ -1,6 +1,6 @@
 "use client";
 
-import { Dispatch, SetStateAction, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 import OTPInput from "react-otp-input";
 import { useMutation } from "@tanstack/react-query";
@@ -10,13 +10,7 @@ import { HiArrowRight } from "react-icons/hi";
 import { CiEdit } from "react-icons/ci";
 import { RESET_TIME } from "@/utils/constants";
 import BeatLoader from "react-spinners/BeatLoader";
-
-interface CheckOTPPropType {
-  phoneNumber: string;
-  onBack: Dispatch<SetStateAction<number>>;
-  onResendOTP: (e: React.MouseEvent<HTMLButtonElement>) => Promise<void>;
-  otpResponse: any;
-}
+import { CheckOTPPropType } from "@/types";
 
 const CheckOTPForm = ({ phoneNumber, onBack, onResendOTP, otpResponse }: CheckOTPPropType) => {
   const [otp, setOtp] = useState("");
@@ -37,12 +31,17 @@ const CheckOTPForm = ({ phoneNumber, onBack, onResendOTP, otpResponse }: CheckOT
 
       toast.success(message);
 
-      if (user.isActive) {
-        // if (user.role === "OWNER") router.push("/owner");
-        // if (user.role === "FREELANCER") router.push("/freelancer");
-      } else {
+      if (!user.isActive) {
         router.push("/complete-profile");
+        return;
       }
+      if (user.statue !== 2) {
+        toast("پروفایل شما در انتظار تایید است", { icon: "😍" });
+        router.push("/");
+        return;
+      }
+      if (user.role === "OWNER") return router.push("/owner");
+      if (user.role === "FREELANCER") return router.push("/freelancer");
     } catch (error: any) {
       toast.error(error?.response?.data?.message);
     }
