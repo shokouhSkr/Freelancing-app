@@ -5,6 +5,8 @@ import CompleteProfileForm from "./authentication/components/CompleteProfileForm
 import TextInput from "./shared/components/TextInput";
 import RadioInput from "./shared/components/RadioInput";
 import Container from "./shared/components/Container";
+import Header from "./shared/components/Header";
+import Sidebar from "./shared/components/Sidebar";
 
 export {
   AuthContainer,
@@ -14,4 +16,6 @@ export {
   TextInput,
   RadioInput,
   Container,
+  Header,
+  Sidebar,
 };

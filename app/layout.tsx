@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Providers from "@/providers/Providers";
+import { Header, Sidebar } from "@/features";
 
 export const metadata: Metadata = {
   title: "Freelanceify | simplifies the freelance experiences",
@@ -12,7 +13,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="fa" dir="rtl">
       <body>
         <Providers>
-          <div className="xl:container xl:max-w-screen-xl">{children}</div>
+          <div className="h-[100dvh] grid grid-cols-[15rem_1fr] grid-rows-[auto_1fr]">
+            <Header />
+            <Sidebar />
+            <div className="overflow-y-auto p-8">
+              <div className="mx-auto max-w-screen-md flex flex-col gap-12 bg-secondary-50">
+                {children}
+              </div>
+            </div>
+          </div>
         </Providers>
       </body>
     </html>

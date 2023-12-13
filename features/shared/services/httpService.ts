@@ -12,6 +12,7 @@ apiManager.interceptors.request.use(
   (err) => Promise.reject(err)
 );
 
+// create new access token based on refresh token
 apiManager.interceptors.response.use(
   (res) => res,
   async (err) => {
