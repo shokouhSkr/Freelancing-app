@@ -7,6 +7,7 @@ import RadioInput from "./shared/components/RadioInput";
 import Container from "./shared/components/Container";
 import Header from "./shared/components/Header";
 import Sidebar from "./shared/components/Sidebar";
+import ProjectsTable from "./projects/components/ProjectsTable";
 
 export {
   AuthContainer,
@@ -18,4 +19,5 @@ export {
   Container,
   Header,
   Sidebar,
+  ProjectsTable,
 };
