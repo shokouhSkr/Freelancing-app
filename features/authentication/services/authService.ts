@@ -11,3 +11,7 @@ export const checkOtp = (data: { phoneNumber: string; otp: string }) => {
 export const completeProfile = (data: { name: string; email: string; role: string }) => {
   return http.post("/user/complete-profile", data);
 };
+
+export const getUser = () => {
+  return http.get("/user/profile");
+};

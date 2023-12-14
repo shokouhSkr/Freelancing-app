@@ -4,7 +4,7 @@ const BASE_URL = "http://localhost:5000/api";
 
 const apiManager = axios.create({
   baseURL: BASE_URL,
-  withCredentials: true,
+  withCredentials: true, // Now each cookie that presents in the user browser, sends to the backend, and the rest is handled in the backend (cookie type: http-only)
 });
 
 apiManager.interceptors.request.use(
@@ -12,7 +12,7 @@ apiManager.interceptors.request.use(
   (err) => Promise.reject(err)
 );
 
-// create new access token based on refresh token
+// Create new access token based on refresh token
 apiManager.interceptors.response.use(
   (res) => res,
   async (err) => {
