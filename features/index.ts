@@ -8,6 +8,7 @@ import Container from "./shared/components/Container";
 import Header from "./shared/components/Header";
 import Sidebar from "./shared/components/Sidebar";
 import ProjectsTable from "./projects/components/ProjectsTable";
+import Empty from "./shared/components/Empty";
 
 export {
   AuthContainer,
@@ -20,4 +21,5 @@ export {
   Header,
   Sidebar,
   ProjectsTable,
+  Empty,
 };
