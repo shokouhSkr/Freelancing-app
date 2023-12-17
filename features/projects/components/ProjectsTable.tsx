@@ -16,7 +16,7 @@ const ProjectsTable = () => {
       </div>
     );
 
-  if (projects?.data?.projects.length === 0) {
+  if (!projects?.data?.projects.length) {
     return <Empty resourceName="پروژه ای" />;
   }
 

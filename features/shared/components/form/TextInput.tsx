@@ -1,10 +1,4 @@
-interface TextFieldPropType {
-  label: string;
-  name: string;
-  value: string;
-  type?: string;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-}
+import { TextFieldPropType } from "@/types";
 
 const TextField = ({ label, name, value, type = "text", onChange }: TextFieldPropType) => {
   return (

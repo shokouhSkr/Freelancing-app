@@ -1,9 +1,4 @@
-interface RadioInputPropType {
-  label: string;
-  value: string;
-  checked: boolean;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-}
+import { RadioInputPropType } from "@/types";
 
 const RadioInput = ({ label, value, checked, onChange }: RadioInputPropType) => {
   return (

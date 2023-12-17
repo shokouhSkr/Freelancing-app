@@ -37,7 +37,7 @@ const ProjectsTable = () => {
           </tr>
         </thead>
         <tbody className="text-center">
-          {projects.map((project, index) => {
+          {projects.map((project: any, index: number) => {
             <tr key={project._id}>
               <td>{index + 1}</td>
               <td>{truncateText(project.title, 30)}</td>
@@ -46,7 +46,7 @@ const ProjectsTable = () => {
               <td>{toLocalDateShort(project.deadline)}</td>
               <td>
                 <div className="flex items-center flex-wrap gap-2 max-w-[200px]">
-                  {project.tags.map((tag) => (
+                  {project.tags.map((tag: string) => (
                     <span key={tag} className="badge badge--secondary">
                       {tag}
                     </span>
