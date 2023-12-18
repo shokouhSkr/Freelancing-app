@@ -1,18 +1,31 @@
 import { TextFieldPropType } from "@/types";
 
-const TextField = ({ label, name, value, type = "text", onChange }: TextFieldPropType) => {
+const TextField = ({
+  label,
+  name,
+  register,
+  validationSchema,
+  required,
+  error,
+  type = "text",
+}: TextFieldPropType) => {
+  console.log("register: ", register);
+
   return (
     <div>
-      <label htmlFor={name}>{label}</label>
+      <label htmlFor={name} className="text-secondary-700 mb-2 block">
+        {label} {required && <span className="text-error">*</span>}
+      </label>
       <input
-        type={type}
-        value={value}
-        onChange={onChange}
-        name={name}
+        {...register(name, validationSchema)}
         id={name}
+        type={type}
         autoComplete="off"
         className="text-input"
       />
+      {error && error[name] && (
+        <span className="text-error text-sm mt-2 block">{error[name]?.message}</span>
+      )}
     </div>
   );
 };

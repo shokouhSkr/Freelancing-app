@@ -12,6 +12,7 @@ import Empty from "./shared/components/Empty";
 import ProjectRow from "./projects/components/ProjectRow";
 import Modal from "./shared/components/modal/Modal";
 import ConfirmDelete from "./shared/components/modal/ConfirmDelete";
+import CreateProjectForm from "./projects/components/CreateProjectForm";
 
 export {
   AuthContainer,
@@ -28,4 +29,5 @@ export {
   ProjectRow,
   Modal,
   ConfirmDelete,
+  CreateProjectForm,
 };

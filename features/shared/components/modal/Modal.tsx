@@ -1,3 +1,5 @@
+"use client";
+
 import { LegacyRef } from "react";
 import { ModalPropType } from "@/types";
 import { HiOutlineX } from "react-icons/hi";

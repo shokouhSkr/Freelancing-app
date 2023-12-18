@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { getUser } from "../services/authService";
 
-export const useUser = () => {
+export const useGetUser = () => {
   return useQuery({
     queryKey: ["get-user"],
     queryFn: getUser,

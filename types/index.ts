@@ -1,4 +1,5 @@
 import { Dispatch, SetStateAction } from "react";
+import { UseFormRegister, FieldValues } from "react-hook-form";
 
 export interface CheckOTPPropType {
   phoneNumber: string;
@@ -17,9 +18,11 @@ export interface ModalPropType {
 export interface TextFieldPropType {
   label: string;
   name: string;
-  value: string;
+  register: UseFormRegister<FieldValues>;
+  validationSchema: any;
+  error: any;
+  required?: boolean;
   type?: string;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 export interface RadioInputPropType {

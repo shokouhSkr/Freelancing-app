@@ -1,9 +1,9 @@
 "use client";
 
-import { useUser } from "@/features/authentication/hooks/useUser";
+import { useGetUser } from "@/features/authentication/hooks/useGetUser";
 
 const Header = () => {
-  const { data } = useUser();
+  const { data } = useGetUser();
   console.log("user data: ", data?.data.data);
 
   return (
