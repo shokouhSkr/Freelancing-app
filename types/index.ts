@@ -1,5 +1,11 @@
 import { Dispatch, SetStateAction } from "react";
-import { UseFormRegister, FieldValues } from "react-hook-form";
+import { UseFormRegister, FieldValues, RegisterOptions } from "react-hook-form";
+
+export interface SendOTPPropType {
+  isSendingOTP: boolean;
+  onSendOTP: any;
+  register: any;
+}
 
 export interface CheckOTPPropType {
   phoneNumber: string;
@@ -18,9 +24,9 @@ export interface ModalPropType {
 export interface TextFieldPropType {
   label: string;
   name: string;
-  register: UseFormRegister<FieldValues>;
-  validationSchema: any;
-  error: any;
+  validationSchema?: RegisterOptions;
+  register: any;
+  error?: any;
   required?: boolean;
   type?: string;
 }
@@ -28,8 +34,11 @@ export interface TextFieldPropType {
 export interface RadioInputPropType {
   label: string;
   value: string;
-  checked: boolean;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  name: string;
+  error: any;
+  watch: any;
+  validationSchema?: RegisterOptions;
+  register: any;
 }
 
 export interface ConfirmDeletePropType {
@@ -38,4 +47,18 @@ export interface ConfirmDeletePropType {
   onClose: () => void;
   onConfirm: any;
   // onConfirm: (id: string, options: { onSuccess: () => void }) => void;
+}
+
+export interface SelectPropType {
+  label: string;
+  name: string;
+  register: any;
+  options: any;
+  required: boolean;
+}
+
+export interface DatePickerFieldPropType {
+  label: string;
+  date: Date;
+  setDate: any;
 }

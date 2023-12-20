@@ -9,8 +9,6 @@ const TextField = ({
   error,
   type = "text",
 }: TextFieldPropType) => {
-  console.log("register: ", register);
-
   return (
     <div>
       <label htmlFor={name} className="text-secondary-700 mb-2 block">

@@ -6,10 +6,12 @@ import CheckOTPForm from "./CheckOTPForm";
 import { useMutation } from "@tanstack/react-query";
 import toast from "react-hot-toast";
 import { getOtp } from "../services/authService";
+import { useForm } from "react-hook-form";
 
 const AuthContainer = () => {
   const [step, setStep] = useState<number>(2);
-  const [phoneNumber, setPhoneNumber] = useState<string>("09161111111");
+  // getValues, get values (dah!) by name
+  const { register, handleSubmit, getValues } = useForm();
 
   const {
     data: otpResponse,
@@ -20,19 +22,14 @@ const AuthContainer = () => {
     mutationFn: getOtp,
   });
 
-  const sendOTPHandler = async (
-    e: React.MouseEvent<HTMLButtonElement> | React.FormEvent<HTMLButtonElement>
-  ) => {
-    e.preventDefault();
-
+  const sendOTPHandler = async (data: any) => {
     try {
-      const res = await mutateAsync({ phoneNumber }); // mutateAsync === getOtp
-      const data = res.data.data;
-      console.log("data from sendOTP: ", data.message);
+      // data => phoneNumber
+      const res = await mutateAsync(data); // mutateAsync === getOtp
+      console.log("data from sendOTP: ", res.data.data.message);
 
-      toast.success(data.message);
+      toast.success(res.data.data.message);
       setStep((prevStep) => prevStep + 1);
-      setPhoneNumber("");
     } catch (error: any) {
       toast.error(error?.response?.data?.message);
     }
@@ -43,10 +40,9 @@ const AuthContainer = () => {
       case 1:
         return (
           <SendOTPForm
-            phoneNumber={phoneNumber}
-            onSetPhoneNumber={setPhoneNumber}
-            onSendOTP={sendOTPHandler}
+            onSendOTP={handleSubmit(sendOTPHandler)}
             isSendingOTP={isSendingOTP}
+            register={register}
           />
         );
 
@@ -56,7 +52,7 @@ const AuthContainer = () => {
             otpResponse={otpResponse}
             onResendOTP={sendOTPHandler}
             onBack={setStep}
-            phoneNumber={phoneNumber}
+            phoneNumber={getValues("phoneNumber")}
           />
         );
 

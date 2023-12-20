@@ -13,6 +13,8 @@ import ProjectRow from "./projects/components/ProjectRow";
 import Modal from "./shared/components/modal/Modal";
 import ConfirmDelete from "./shared/components/modal/ConfirmDelete";
 import CreateProjectForm from "./projects/components/CreateProjectForm";
+import Select from "./shared/components/form/Select";
+import DatePickerField from "./shared/components/form/DatePickerField";
 
 export {
   AuthContainer,
@@ -30,4 +32,6 @@ export {
   Modal,
   ConfirmDelete,
   CreateProjectForm,
+  Select,
+  DatePickerField,
 };

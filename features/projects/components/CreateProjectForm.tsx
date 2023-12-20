@@ -1,7 +1,9 @@
 "use client";
 
-import { TextInput } from "@/features";
+import { useState } from "react";
+import { DatePickerField, Select, TextInput } from "@/features";
 import { useForm } from "react-hook-form";
+import { TagsInput } from "react-tag-input-component";
 
 const CreateProjectForm = () => {
   // register => with this, we don't need to pass onChange, value, onBlur, ... to the form. it does automatically
@@ -10,6 +12,8 @@ const CreateProjectForm = () => {
     handleSubmit,
     formState: { errors, isSubmitting },
   } = useForm();
+  const [tags, setTags] = useState<string[]>([]);
+  const [date, setDate] = useState<Date>(new Date());
 
   const onSubmit = (data: any) => {
     console.log(data);
@@ -56,6 +60,14 @@ const CreateProjectForm = () => {
           required: "بودجه ضروری است",
         }}
       />
+      <Select label="دسته بندی" name="category" register={register} options={[]} required />
+
+      <div>
+        <label className="mb-2 block text-secondary-700">برچسب ها</label>
+        <TagsInput name="tags" value={tags} onChange={setTags} />
+      </div>
+
+      <DatePickerField label="ددلاین" date={date} setDate={setDate} />
 
       <button type="submit" className="btn">
         تایید
