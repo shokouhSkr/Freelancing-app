@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ConfirmDelete, CreateProjectForm, Modal } from "@/features";
+import { ConfirmDelete, CreateProjectForm, Modal, ToggleProjectStatus } from "@/features";
 import Table from "@/features/shared/components/Table";
 import { truncateText, formatPrice, toLocalDateShort } from "@/utils/helpers";
 import { HiOutlineTrash } from "react-icons/hi";
@@ -31,11 +31,12 @@ const ProjectRow = ({ project, index }: { project: any; index: number }) => {
       </td>
       <td>{project?.freelancer?.name || "-"}</td>
       <td>
-        {project.status === "OPEN" ? (
+        <ToggleProjectStatus project={project} />
+        {/* {project.status === "OPEN" ? (
           <span className="badge badge--success">باز</span>
         ) : (
           <span className="badge badge--error">بسته</span>
-        )}
+        )} */}
       </td>
       <td>
         <div className="flex items-center gap-4">

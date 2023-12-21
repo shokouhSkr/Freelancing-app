@@ -16,6 +16,8 @@ import CreateProjectForm from "./projects/components/CreateProjectForm";
 import Select from "./shared/components/form/Select";
 import DatePickerField from "./shared/components/form/DatePickerField";
 import ProjectsHeader from "./projects/components/ProjectsHeader";
+import ToggleProjectStatus from "./projects/components/ToggleProjectStatus";
+import Toggle from "./shared/components/Toggle";
 
 export {
   AuthContainer,
@@ -36,4 +38,6 @@ export {
   Select,
   DatePickerField,
   ProjectsHeader,
+  ToggleProjectStatus,
+  Toggle,
 };

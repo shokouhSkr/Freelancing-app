@@ -67,3 +67,9 @@ export interface CreateProjectFormPropType {
   onClose: () => void;
   projectToEdit?: any;
 }
+
+export interface TogglePropType {
+  label: string;
+  enabled: boolean;
+  onChange: any;
+}
