@@ -4,6 +4,10 @@ export const getOwnerProjects = () => {
   return http.get("/project/owner-projects");
 };
 
+export const getProject = (id: any) => {
+  return http.get(`/project/${id}`).then(({ data }) => data.data);
+};
+
 // add Api to the end of function names => createProjectApi
 export const createProject = (data: any) => {
   return http.post("/project/add", data).then(({ data }) => data.data);

@@ -1,3 +1,5 @@
+"use client";
+
 import { TogglePropType } from "@/types";
 import { Switch } from "@headlessui/react";
 

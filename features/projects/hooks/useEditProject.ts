@@ -1,5 +1,5 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { editProject } from "../services/projectService";
+import { editProject } from "../services/projectsService";
 import toast from "react-hot-toast";
 
 export const useEditProject = () => {

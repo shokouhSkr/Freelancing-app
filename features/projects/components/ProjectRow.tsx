@@ -4,9 +4,10 @@ import { useState } from "react";
 import { ConfirmDelete, CreateProjectForm, Modal, ToggleProjectStatus } from "@/features";
 import Table from "@/features/shared/components/Table";
 import { truncateText, formatPrice, toLocalDateShort } from "@/utils/helpers";
-import { HiOutlineTrash } from "react-icons/hi";
+import { HiEye, HiOutlineTrash } from "react-icons/hi";
 import { TbPencilMinus } from "react-icons/tb";
 import { useRemoveProject } from "../hooks/useRemoveProject";
+import Link from "next/link";
 
 const ProjectRow = ({ project, index }: { project: any; index: number }) => {
   const [isEditOpen, setIsEditOpen] = useState<boolean>(false);
@@ -73,6 +74,11 @@ const ProjectRow = ({ project, index }: { project: any; index: number }) => {
             />
           </Modal>
         </div>
+      </td>
+      <td>
+        <Link href={`/owner/projects/${project._id}`} className="flex justify-center">
+          <HiEye className="w-5 h-5 text-primary-800" />
+        </Link>
       </td>
     </Table.Row>
   );
