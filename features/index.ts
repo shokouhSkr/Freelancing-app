@@ -15,6 +15,7 @@ import ConfirmDelete from "./shared/components/modal/ConfirmDelete";
 import CreateProjectForm from "./projects/components/CreateProjectForm";
 import Select from "./shared/components/form/Select";
 import DatePickerField from "./shared/components/form/DatePickerField";
+import ProjectsHeader from "./projects/components/ProjectsHeader";
 
 export {
   AuthContainer,
@@ -34,4 +35,5 @@ export {
   CreateProjectForm,
   Select,
   DatePickerField,
+  ProjectsHeader,
 };

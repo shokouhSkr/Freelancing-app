@@ -8,18 +8,19 @@ export const useCategories = () => {
   });
 
   // {_id, title, enTitle,...}
-  const { categories: rawCategories = [] } = data || {};
+  const { categories = [] } = data || {};
 
   // {value, label}
-  const categories = rawCategories.map((item: any) => {
-    label: item.title;
-    value: item._id;
-  });
+  const newCategories = categories.map((item: any) => ({
+    label: item.title,
+    value: item._id,
+    // englishTitle: item.englishTitle,
+  }));
 
-  const transformedCategories = rawCategories.map((item: any) => {
-    label: item.title;
-    value: item.englishTitle;
-  });
+  const transformedCategories = categories.map((item: any) => ({
+    label: item.title,
+    value: item.englishTitle,
+  }));
 
   return { isLoading, categories, transformedCategories };
 };

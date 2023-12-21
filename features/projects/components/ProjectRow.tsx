@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ConfirmDelete, Modal } from "@/features";
+import { ConfirmDelete, CreateProjectForm, Modal } from "@/features";
 import Table from "@/features/shared/components/Table";
 import { truncateText, formatPrice, toLocalDateShort } from "@/utils/helpers";
 import { HiOutlineTrash } from "react-icons/hi";
@@ -48,7 +48,7 @@ const ProjectRow = ({ project, index }: { project: any; index: number }) => {
             title={`ویرایش ${project.title}`}
             onClose={() => setIsEditOpen(false)}
           >
-            this is modal from editing
+            <CreateProjectForm projectToEdit={project} onClose={() => setIsEditOpen(false)} />
           </Modal>
 
           {/* delete project */}

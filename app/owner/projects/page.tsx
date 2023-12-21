@@ -1,8 +1,9 @@
-import { ProjectsTable } from "@/features";
+import { ProjectsHeader, ProjectsTable } from "@/features";
 
 const ProjectsPage = () => {
   return (
     <div>
+      <ProjectsHeader />
       <ProjectsTable />
     </div>
   );

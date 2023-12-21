@@ -5,20 +5,62 @@ import { DatePickerField, Select, TextInput } from "@/features";
 import { useForm } from "react-hook-form";
 import { TagsInput } from "react-tag-input-component";
 import { useCategories } from "../hooks/useCategories";
+import { useCreateProject } from "../hooks/useCreateProject";
+import { CreateProjectFormPropType } from "@/types";
+import { useEditProject } from "../hooks/useEditProject";
 
-const CreateProjectForm = () => {
+const CreateProjectForm = ({ onClose, projectToEdit = {} }: CreateProjectFormPropType) => {
+  const { _id: editId } = projectToEdit;
+  const isEditingSession = Boolean(editId);
+
+  const { title, description, budget, category, deadline, tags: projectTags } = projectToEdit;
+  let editValues = {};
+  if (isEditingSession) {
+    editValues = {
+      title,
+      description,
+      budget,
+      category: category._id,
+    };
+  }
+
   // register => with this, we don't need to pass onChange, value, onBlur, ... to the form. it does automatically
   const {
     register,
     handleSubmit,
-    formState: { errors, isSubmitting },
-  } = useForm();
-  const [tags, setTags] = useState<string[]>([]);
-  const [date, setDate] = useState<Date>(new Date());
-  const { categories } = useCategories();
+    reset,
+    formState: { errors },
+  } = useForm({ defaultValues: editValues });
 
-  const onSubmit = (data: any) => {
+  const [tags, setTags] = useState<string[]>(projectTags || []);
+  const [date, setDate] = useState<Date>(new Date(deadline || ""));
+  const { categories } = useCategories();
+  const { isCreating, mutateAsync: createProject } = useCreateProject();
+  const { isEditing, mutateAsync: editProject } = useEditProject();
+
+  const onSubmit = async (data: any) => {
     console.log(data);
+
+    const newProject = { ...data, deadline: new Date(date).toISOString(), tags };
+
+    if (isEditingSession) {
+      editProject(
+        { id: editId, newProject },
+        {
+          onSuccess: () => {
+            onClose();
+            reset();
+          },
+        }
+      );
+    } else {
+      createProject(newProject, {
+        onSuccess: () => {
+          onClose();
+          reset();
+        },
+      });
+    }
   };
 
   return (
@@ -71,9 +113,11 @@ const CreateProjectForm = () => {
 
       <DatePickerField label="ددلاین" date={date} setDate={setDate} />
 
-      <button type="submit" className="btn">
-        تایید
-      </button>
+      <div>
+        <button type="submit" className="btn">
+          {isCreating ? "..." : "تایید"}
+        </button>
+      </div>
     </form>
   );
 };

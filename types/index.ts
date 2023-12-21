@@ -62,3 +62,8 @@ export interface DatePickerFieldPropType {
   date: Date;
   setDate: any;
 }
+
+export interface CreateProjectFormPropType {
+  onClose: () => void;
+  projectToEdit?: any;
+}
