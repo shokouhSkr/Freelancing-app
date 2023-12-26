@@ -6,7 +6,7 @@ import Table from "@/features/shared/components/Table";
 import { truncateText, formatPrice, toLocalDateShort } from "@/utils/helpers";
 import { HiEye, HiOutlineTrash } from "react-icons/hi";
 import { TbPencilMinus } from "react-icons/tb";
-import { useRemoveProject } from "../hooks/useRemoveProject";
+import { useRemoveProject } from "../../projects/hooks/useRemoveProject";
 import Link from "next/link";
 
 const ProjectRow = ({ project, index }: { project: any; index: number }) => {

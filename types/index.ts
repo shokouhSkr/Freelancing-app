@@ -14,6 +14,11 @@ export interface CheckOTPPropType {
   otpResponse: any;
 }
 
+export interface ChangeProposalStatusPropType {
+  proposalId: string;
+  onClose: () => void;
+}
+
 export interface ModalPropType {
   open: boolean;
   onClose: () => void;
@@ -72,4 +77,9 @@ export interface TogglePropType {
   label: string;
   enabled: boolean;
   onChange: any;
+}
+
+export interface ProposalPropType {
+  proposal: any;
+  index: number;
 }

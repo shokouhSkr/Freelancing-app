@@ -9,7 +9,7 @@ import Header from "./shared/components/layout/Header";
 import Sidebar from "./shared/components/layout/Sidebar";
 import ProjectsTable from "./projects/components/ProjectsTable";
 import Empty from "./shared/components/Empty";
-import ProjectRow from "./projects/components/ProjectRow";
+import ProjectRow from "./singleProject/components/ProjectRow";
 import Modal from "./shared/components/modal/Modal";
 import ConfirmDelete from "./shared/components/modal/ConfirmDelete";
 import CreateProjectForm from "./projects/components/CreateProjectForm";
@@ -18,10 +18,13 @@ import DatePickerField from "./shared/components/form/DatePickerField";
 import ProjectsHeader from "./projects/components/ProjectsHeader";
 import ToggleProjectStatus from "./projects/components/ToggleProjectStatus";
 import Toggle from "./shared/components/Toggle";
-import ProposalsTable from "./projects/components/ProposalsTable";
-import SingleProjectHeader from "./projects/components/SingleProjectHeader";
+import ProposalsTable from "./singleProject/components/ProposalsTable";
+import SingleProjectHeader from "./singleProject/components/SingleProjectHeader";
+import ProposalRow from "./singleProject/components/ProposalRow";
+import ChangeProposalStatus from "./singleProject/components/ChangeProposalStatus";
 
 export {
+  ChangeProposalStatus,
   AuthContainer,
   CheckOTPForm,
   SendOTPForm,
@@ -44,4 +47,5 @@ export {
   Toggle,
   ProposalsTable,
   SingleProjectHeader,
+  ProposalRow,
 };
