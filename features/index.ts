@@ -22,6 +22,7 @@ import ProposalsTable from "./singleProject/components/ProposalsTable";
 import SingleProjectHeader from "./singleProject/components/SingleProjectHeader";
 import ProposalRow from "./singleProject/components/ProposalRow";
 import ChangeProposalStatus from "./singleProject/components/ChangeProposalStatus";
+import NavLink from "./shared/components/layout/NavLink";
 
 export {
   ChangeProposalStatus,
@@ -48,4 +49,5 @@ export {
   ProposalsTable,
   SingleProjectHeader,
   ProposalRow,
+  NavLink,
 };

@@ -1,8 +1,17 @@
+import { navLinks } from "@/utils/constants";
+import NavLink from "./NavLink";
+
 const Sidebar = () => {
   return (
-    <div className="bg-secondary-0 border-l border-secondary-200 row-start-1 row-span-2">
-      Sidebar
-    </div>
+    <aside className="bg-secondary-0 border-l border-secondary-200 row-start-1 row-span-2">
+      <nav>
+        <ul className="p-4 space-y-2">
+          {navLinks.map((link) => (
+            <NavLink key={link.title} {...link} />
+          ))}
+        </ul>
+      </nav>
+    </aside>
   );
 };
 

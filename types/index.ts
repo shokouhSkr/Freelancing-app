@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, ReactNode, SetStateAction } from "react";
 import { UseFormRegister, FieldValues, RegisterOptions } from "react-hook-form";
 
 export interface SendOTPPropType {
@@ -82,4 +82,10 @@ export interface TogglePropType {
 export interface ProposalPropType {
   proposal: any;
   index: number;
+}
+
+export interface NavLink {
+  title: string;
+  path: string;
+  icon: React.ReactElement;
 }
