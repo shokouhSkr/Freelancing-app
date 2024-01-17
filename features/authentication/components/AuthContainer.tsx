@@ -16,7 +16,6 @@ const AuthContainer = () => {
   const {
     data: otpResponse,
     isPending: isSendingOTP,
-    error,
     mutateAsync,
   } = useMutation({
     mutationFn: getOtp,
@@ -26,7 +25,7 @@ const AuthContainer = () => {
     try {
       // data => phoneNumber
       const res = await mutateAsync(data); // mutateAsync === getOtp
-      console.log("data from sendOTP: ", res.data.data.message);
+      // console.log("data from sendOTP: ", res.data.data.message);
 
       toast.success(res.data.data.message);
       setStep((prevStep) => prevStep + 1);
@@ -52,7 +51,8 @@ const AuthContainer = () => {
             otpResponse={otpResponse}
             onResendOTP={sendOTPHandler}
             onBack={setStep}
-            phoneNumber={getValues("phoneNumber")}
+            phoneNumber="09379733726"
+            // phoneNumber={getValues("phoneNumber")}
           />
         );
 

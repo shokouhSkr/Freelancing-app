@@ -1,10 +1,10 @@
 "use client";
 
-import { useGetUser } from "@/features/authentication/hooks/useGetUser";
+import { useUser } from "@/features/authentication/hooks/useUser";
 
 const Header = () => {
-  const { data } = useGetUser();
-  console.log("user data: ", data?.data.data);
+  const { user } = useUser();
+  console.log("user data: ", user);
 
   return (
     <div className="col-start-2 col-span-2 bg-secondary-0 py-4 px-8 border-b border-secondary-200">

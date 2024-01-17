@@ -1,98 +1,28 @@
-/* persian font: 
-        1.copy the fonts in public folder
-        2.@import url("/fonts.css")
-        3.body {font-family: "Vazir"}
-        4.checkout tailwind config
+/* 
+====================
+GLOBAL STYLES
+====================
 */
 
-/* add colors: 
-        1.@layer base {:root { --color-primary-200: 201, 211, 255;}}
-        2.checkout tailwind config (and the withOpacity fn)
-*/
-
+/* Importing fonts and Tailwind CSS */
 @import url("/fonts.css");
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* Setting global font */
 html,
 body {
   font-family: "Vazir";
 }
 
-label {
-  display: block;
-  margin-bottom: 0.5rem;
-}
+/* 
+====================
+COLORS
+====================
+*/
 
-/* ******************************************************** */
-/* TABLE */
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-  width: 100%;
-}
-
-table .title-row {
-  background-color: rgb(var(--color-secondary-100));
-}
-
-table td,
-table th {
-  border-bottom: 1px solid rgb(var(--color-secondary-200));
-  text-align: right;
-  white-space: nowrap;
-}
-
-table th {
-  padding: 0.6rem 1rem;
-  color: rgb(var(--color-secondary-600));
-  font-size: 0.9rem;
-}
-
-table td {
-  font-size: 0.85rem;
-  padding: 1rem 1rem;
-  color: rgb(var(--color-secondary-600));
-}
-/* END OF TABLE */
-
-/* ******************************************************** */
-/* REACT-TAG-COMPONENT-INPUT */
-.rti--container {
-  background-color: rgb(var(--color-secondary-100));
-  --rti-radius: 0.375rem;
-  --rti-s: 0.5rem;
-  --rti-tag: #edf2f7;
-  --rti-tag-remove: #e53e3e;
-  border: none;
-}
-.rti--container .rti--input {
-  background-color: rgb(var(--color-secondary-200));
-  color: rgb(var(--color-secondary-800));
-  padding: 0.3rem 1rem;
-  border-radius: 0.5rem;
-}
-
-.rti--tag {
-  background-color: rgb(var(--color-secondary-500));
-  color: rgb(var(--color-secondary-900));
-}
-/* END OF REACT-TAG-COMPONENT-INPUT */
-
-/* ******************************************************** */
-/* INPUT-NUMBER */
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-input[type="number"] {
-  -moz-appearance: textfield;
-}
-/* END OF INPUT-NUMBER */
-
+/* Adding custom colors */
 @layer base {
   :root {
     &,
@@ -142,6 +72,88 @@ input[type="number"] {
   }
 }
 
+/* 
+====================
+COMPONENT STYLES
+====================
+*/
+
+/* Label styles */
+label {
+  margin-bottom: 0.5rem;
+}
+
+/* Table styles */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+}
+
+table .title-row {
+  background-color: rgb(var(--color-secondary-100));
+}
+
+table td,
+table th {
+  border-bottom: 1px solid rgb(var(--color-secondary-200));
+  text-align: right;
+  white-space: nowrap;
+}
+
+table th {
+  padding: 0.6rem 1rem;
+  color: rgb(var(--color-secondary-600));
+  font-size: 0.9rem;
+}
+
+table td {
+  font-size: 0.85rem;
+  padding: 1rem 1rem;
+  color: rgb(var(--color-secondary-600));
+}
+
+/* React tag component input styles */
+.rti--container {
+  background-color: rgb(var(--color-secondary-100));
+  --rti-radius: 0.375rem;
+  --rti-s: 0.5rem;
+  --rti-tag: #edf2f7;
+  --rti-tag-remove: #e53e3e;
+  border: none;
+}
+.rti--container .rti--input {
+  background-color: rgb(var(--color-secondary-200));
+  color: rgb(var(--color-secondary-800));
+  padding: 0.3rem 1rem;
+  border-radius: 0.5rem;
+}
+.rti--tag {
+  background-color: rgb(var(--color-secondary-500));
+  color: rgb(var(--color-secondary-900));
+}
+
+/* Input number styles */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+/* input[type="radio"]:checked + label:before {
+  content: "\2713";
+  background-color: #000;
+  color: #fff;
+} */
+
+/* 
+====================
+TAILWIND COMPONENTS
+====================
+*/
+
 @layer components {
   .text-input {
     @apply w-full p-2 rounded-lg bg-gray-100 text-secondary-900 border border-gray-300 hover:border-primary-900 focus:border-primary-500 focus:bg-white transition-all duration-200 ease-out focus:shadow-md focus:shadow-primary-200 outline-none;
@@ -176,25 +188,22 @@ input[type="number"] {
   }
 }
 
-/* input[type="radio"] {
-  display: none;
-}
+/* 
+====================
+INSTRUCTIONS
+====================
+*/
 
-input[type="radio"] + label:before {
-  content: "";
-  display: inline-block;
-  width: 16px;
-  height: 16px;
-  margin-right: 5px;
-  border: 1px solid #000;
-  border-radius: 50%;
-  text-align: center;
-  line-height: 16px;
-  cursor: pointer;
-}
+/* 
+Persian font: 
+1. Copy the fonts in public folder
+2. @import url("/fonts.css")
+3. body {font-family: "Vazir"}
+4. Checkout tailwind config
+*/
 
-input[type="radio"]:checked + label:before {
-  content: "\2713";
-  background-color: #000;
-  color: #fff;
-} */
+/* 
+Add colors: 
+1. @layer base {:root { --color-primary-200: 201, 211, 255;}}
+2. Checkout tailwind config (and the withOpacity fn)
+*/

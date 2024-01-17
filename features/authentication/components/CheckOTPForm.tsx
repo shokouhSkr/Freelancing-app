@@ -17,7 +17,7 @@ const CheckOTPForm = ({ phoneNumber, onBack, onResendOTP, otpResponse }: CheckOT
   const [time, setTime] = useState(RESET_TIME);
   const router = useRouter();
 
-  const { data, isPending, mutateAsync } = useMutation({
+  const { isPending, mutateAsync } = useMutation({
     mutationFn: checkOtp,
   });
 
@@ -69,7 +69,8 @@ const CheckOTPForm = ({ phoneNumber, onBack, onResendOTP, otpResponse }: CheckOT
           onChange={setOtp}
           numInputs={6}
           renderInput={(props) => <input {...props} type="number" className="otp-input" />}
-          renderSeparator={<span className="text-gray-800">-</span>}
+          renderSeparator={<span className="px-1"></span>}
+          // renderSeparator={<span className="text-gray-800">-</span>}
           containerStyle="flex flex-row-reverse gap-1 justify-center"
           inputStyle={{
             width: "2.5rem",
@@ -86,8 +87,8 @@ const CheckOTPForm = ({ phoneNumber, onBack, onResendOTP, otpResponse }: CheckOT
         </div>
 
         {otpResponse && (
-          <p>
-            {otpResponse?.message}
+          <p className="flex gap-2 items-center">
+            {otpResponse?.data?.data?.message}
             <button onClick={() => onBack(1)}>
               <CiEdit />
             </button>

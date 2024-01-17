@@ -1,5 +1,8 @@
 import http from "@/features/shared/services/httpService";
 
+// export const getOtp = (data: { phoneNumber: string }) => {
+//   return http.post("/user/get-otp", data).then(({data})=>data.data);
+// };
 export const getOtp = (data: { phoneNumber: string }) => {
   return http.post("/user/get-otp", data);
 };
@@ -13,5 +16,5 @@ export const completeProfile = (data: { name: string; email: string; role: strin
 };
 
 export const getUser = () => {
-  return http.get("/user/profile");
+  return http.get("/user/profile").then(({ data }) => data.data);
 };

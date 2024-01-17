@@ -1,8 +1,8 @@
 import { fontFamily } from "tailwindcss/defaultTheme";
 import tailwindFormPlugin from "@tailwindcss/forms";
 
-function withOpacity(variableName) {
-  return ({ opacityValue }) => {
+function withOpacity(variableName: string) {
+  return ({ opacityValue }: { opacityValue: number | undefined }) => {
     if (opacityValue !== undefined) {
       return `rgba(var(${variableName}), ${opacityValue})`;
     }
@@ -20,6 +20,8 @@ const config = {
     extend: {
       colors: {
         primary: {
+          // you can find this colors (--color-primary-900) in globals.css file
+          // use it as "text-primary-900, bg-primary-500, ..."
           900: withOpacity("--color-primary-900"),
           800: withOpacity("--color-primary-800"),
           700: withOpacity("--color-primary-700"),

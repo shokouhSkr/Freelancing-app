@@ -30,14 +30,14 @@ const CompleteProfileForm = () => {
       // data => name, email, role
       const res = await mutateAsync(data); // mutateAsync === completeProfile
       const { message, user } = res.data.data;
-      console.log("data from complete profile: ", user);
+      // console.log("data from complete profile: ", user);
       toast.success(message);
 
       // role => push to profile
       // status ? 0, 1 or 2
       // check user status to push to profile or not
-      if (user.statue !== 2) {
-        toast("پروفایل شما در انتظار تایید است", { icon: "😍" });
+      if (user.status !== 2) {
+        toast("پروفایل شما در انتظار تایید است", { icon: "😍" }); // custom toast
         router.push("/");
         return;
       }
