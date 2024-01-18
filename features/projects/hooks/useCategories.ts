@@ -22,5 +22,5 @@ export const useCategories = () => {
     value: item.englishTitle,
   }));
 
-  return { isLoading, categories, transformedCategories };
+  return { isLoading, newCategories, transformedCategories };
 };

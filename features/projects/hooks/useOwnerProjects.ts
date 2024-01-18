@@ -3,11 +3,11 @@ import { getOwnerProjects } from "../services/projectsService";
 
 export const useOwnerProjects = () => {
   const { data, isLoading } = useQuery({
-    queryKey: ["get-owner-projects"],
+    queryKey: ["owner-projects"],
     queryFn: getOwnerProjects,
   });
 
-  const { data: projects } = data || {};
+  const { projects } = data || {};
 
   return { isLoading, projects };
 };

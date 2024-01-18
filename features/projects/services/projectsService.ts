@@ -1,7 +1,7 @@
 import http from "@/features/shared/services/httpService";
 
 export const getOwnerProjects = () => {
-  return http.get("/project/owner-projects");
+  return http.get("/project/owner-projects").then(({ data }) => data.data);
 };
 
 export const getProject = (id: any) => {

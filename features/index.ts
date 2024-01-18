@@ -9,7 +9,7 @@ import Header from "./shared/components/layout/Header";
 import Sidebar from "./shared/components/layout/Sidebar";
 import ProjectsTable from "./projects/components/ProjectsTable";
 import Empty from "./shared/components/Empty";
-import ProjectRow from "./singleProject/components/ProjectRow";
+import ProjectRow from "./projects/components/ProjectRow";
 import Modal from "./shared/components/modal/Modal";
 import ConfirmDelete from "./shared/components/modal/ConfirmDelete";
 import CreateProjectForm from "./projects/components/CreateProjectForm";
@@ -23,6 +23,7 @@ import SingleProjectHeader from "./singleProject/components/SingleProjectHeader"
 import ProposalRow from "./singleProject/components/ProposalRow";
 import ChangeProposalStatus from "./singleProject/components/ChangeProposalStatus";
 import NavLink from "./shared/components/layout/NavLink";
+import Table from "./shared/components/Table";
 
 export {
   ChangeProposalStatus,
@@ -50,4 +51,5 @@ export {
   SingleProjectHeader,
   ProposalRow,
   NavLink,
+  Table,
 };

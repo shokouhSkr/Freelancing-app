@@ -7,7 +7,7 @@ import Table from "@/features/shared/components/Table";
 
 const ProjectsTable = () => {
   const { projects, isLoading } = useOwnerProjects();
-  console.log("projects owner: ", projects?.data?.projects);
+  // console.log("projects owner: ", projects);
 
   if (isLoading)
     return (
@@ -16,7 +16,7 @@ const ProjectsTable = () => {
       </div>
     );
 
-  if (!projects?.data?.projects.length) {
+  if (!projects) {
     return <Empty resourceName="پروژه ای" />;
   }
 
@@ -26,7 +26,7 @@ const ProjectsTable = () => {
         <th>#</th>
         <th>عنوان پروژه</th>
         <th>دسته بندی</th>
-        <th>بودجه</th>
+        <th>بودجه (تومان)</th>
         <th>ددلاین</th>
         <th>تگ ها</th>
         <th>فریلنسر</th>
@@ -36,9 +36,9 @@ const ProjectsTable = () => {
       </Table.Header>
 
       <Table.Body>
-        {projects.map((project: any, index: number) => {
-          <ProjectRow key={project._id} project={project} index={index} />;
-        })}
+        {projects.map((project: any, index: number) => (
+          <ProjectRow key={project._id} project={project} index={index} />
+        ))}
       </Table.Body>
     </Table>
   );

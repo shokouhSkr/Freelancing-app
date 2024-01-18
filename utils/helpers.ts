@@ -8,7 +8,7 @@ export const toLocalDateShort = (date: string) => {
   return new Date(date).toLocaleDateString("fa-IR");
 };
 
-export const formatPrice = (price: number) => {
+export const persianPriceFormatter = (price: number) => {
   let newPrice = String(price)
     .split("")
     .reverse()
@@ -19,6 +19,9 @@ export const formatPrice = (price: number) => {
     })
     .reverse()
     .join(",");
+
+  const farsiDigits = ["۰", "۱", "۲", "۳", "۴", "۵", "۶", "۷", "۸", "۹"];
+  newPrice = newPrice.replace(/\d/g, (match) => farsiDigits[Number(match)]);
 
   return newPrice;
 };

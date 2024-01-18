@@ -34,12 +34,12 @@ const CreateProjectForm = ({ onClose, projectToEdit = {} }: CreateProjectFormPro
 
   const [tags, setTags] = useState<string[]>(projectTags || []);
   const [date, setDate] = useState<Date>(new Date(deadline || ""));
-  const { categories } = useCategories();
+  const { newCategories: categories } = useCategories();
   const { isCreating, mutateAsync: createProject } = useCreateProject();
   const { isEditing, mutateAsync: editProject } = useEditProject();
 
   const onSubmit = async (data: any) => {
-    console.log(data);
+    // console.log(data);
 
     const newProject = { ...data, deadline: new Date(date).toISOString(), tags };
 

@@ -8,12 +8,12 @@ export const useCreateProject = () => {
   const { isPending: isCreating, mutateAsync } = useMutation({
     mutationFn: createProject,
     onSuccess: (data) => {
-      console.log("data from removeProject: ", data);
+      // console.log("data from removeProject: ", data);
       toast.success("پروژه با موفقیت حذف شد.");
 
       // After creating a project, we need fresh data. so we invalidate queries to fetch data again
       queryClient.invalidateQueries({
-        queryKey: ["get-owner-projects"],
+        queryKey: ["owner-projects"],
       });
     },
     onError: (err: any) => {

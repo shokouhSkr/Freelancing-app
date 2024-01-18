@@ -20,7 +20,7 @@ export interface ChangeProposalStatusPropType {
 }
 
 export interface ModalPropType {
-  open: boolean;
+  isOpen: boolean;
   onClose: () => void;
   title: string;
   children: React.ReactNode;

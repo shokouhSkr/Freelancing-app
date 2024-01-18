@@ -14,7 +14,7 @@ export const useEditProject = () => {
 
       // After editing a project, we need fresh data. so we invalidate queries to fetch data again
       queryClient.invalidateQueries({
-        queryKey: ["get-owner-projects"],
+        queryKey: ["owner-projects"],
       });
     },
     onError: (err: any) => {

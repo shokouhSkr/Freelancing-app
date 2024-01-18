@@ -11,7 +11,7 @@ const ProjectHeader = () => {
     <div className="flex items-center justify-between mb-6">
       <h1 className="font-black text-secondary-700 text-xl">پروژه های شما</h1>
 
-      <Modal open={isOpen} onClose={() => setIsOpen(false)} title="اضافه کردن پروژه جدید">
+      <Modal isOpen={isOpen} onClose={() => setIsOpen(false)} title="اضافه کردن پروژه جدید">
         <CreateProjectForm onClose={() => setIsOpen(false)} />
       </Modal>
 

@@ -1,12 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import { ConfirmDelete, CreateProjectForm, Modal, ToggleProjectStatus } from "@/features";
-import Table from "@/features/shared/components/Table";
-import { truncateText, formatPrice, toLocalDateShort } from "@/utils/helpers";
+import { ConfirmDelete, CreateProjectForm, Modal, ToggleProjectStatus, Table } from "@/features";
+import { truncateText, persianPriceFormatter, toLocalDateShort } from "@/utils/helpers";
 import { HiEye, HiOutlineTrash } from "react-icons/hi";
 import { TbPencilMinus } from "react-icons/tb";
-import { useRemoveProject } from "../../projects/hooks/useRemoveProject";
+import { useRemoveProject } from "../hooks/useRemoveProject";
 import Link from "next/link";
 
 const ProjectRow = ({ project, index }: { project: any; index: number }) => {
@@ -19,7 +18,7 @@ const ProjectRow = ({ project, index }: { project: any; index: number }) => {
       <td>{index + 1}</td>
       <td>{truncateText(project.title, 30)}</td>
       <td>{project.category.title}</td>
-      <td>{formatPrice(project.budget)}</td>
+      <td>{persianPriceFormatter(project.budget)}</td>
       <td>{toLocalDateShort(project.deadline)}</td>
       <td>
         <div className="flex items-center flex-wrap gap-2 max-w-[200px]">
@@ -36,7 +35,7 @@ const ProjectRow = ({ project, index }: { project: any; index: number }) => {
         {/* {project.status === "OPEN" ? (
           <span className="badge badge--success">باز</span>
         ) : (
-          <span className="badge badge--error">بسته</span>
+          <span className="badge bg-red-500 text-white">بسته</span>
         )} */}
       </td>
       <td>
@@ -46,7 +45,7 @@ const ProjectRow = ({ project, index }: { project: any; index: number }) => {
             <TbPencilMinus className="w-5 h-5 text-primary-900" />
           </button>
           <Modal
-            open={isEditOpen}
+            isOpen={isEditOpen}
             title={`ویرایش ${project.title}`}
             onClose={() => setIsEditOpen(false)}
           >
@@ -58,7 +57,7 @@ const ProjectRow = ({ project, index }: { project: any; index: number }) => {
             <HiOutlineTrash className="w-5 h-5 text-error" />
           </button>
           <Modal
-            open={isDeleteOpen}
+            isOpen={isDeleteOpen}
             title={`حذف ${project.title}`}
             onClose={() => setIsDeleteOpen(false)}
           >

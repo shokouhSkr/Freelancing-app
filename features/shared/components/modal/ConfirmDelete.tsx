@@ -12,7 +12,7 @@ const ConfirmDelete = ({ resourceName, disabled, onClose, onConfirm }: ConfirmDe
         <button
           onClick={onConfirm}
           disabled={disabled}
-          className="btn bg-white text-red-500 flex-1"
+          className="btn bg-white text-red-500 border border-red-500 flex-1 hover:bg-red-300"
         >
           تایید
         </button>
