@@ -14,6 +14,7 @@ const TextField = ({
       <label htmlFor={name} className="text-secondary-700 mb-2 block">
         {label} {required && <span className="text-error">*</span>}
       </label>
+
       <input
         {...register(name, validationSchema)}
         id={name}
@@ -21,6 +22,7 @@ const TextField = ({
         autoComplete="off"
         className="text-input"
       />
+
       {error && error[name] && (
         <span className="text-error text-sm mt-2 block">{error[name]?.message}</span>
       )}

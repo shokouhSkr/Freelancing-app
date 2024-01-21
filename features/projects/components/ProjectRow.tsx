@@ -32,11 +32,6 @@ const ProjectRow = ({ project, index }: { project: any; index: number }) => {
       <td>{project?.freelancer?.name || "-"}</td>
       <td>
         <ToggleProjectStatus project={project} />
-        {/* {project.status === "OPEN" ? (
-          <span className="badge badge--success">باز</span>
-        ) : (
-          <span className="badge bg-red-500 text-white">بسته</span>
-        )} */}
       </td>
       <td>
         <div className="flex items-center gap-4">
@@ -65,6 +60,8 @@ const ProjectRow = ({ project, index }: { project: any; index: number }) => {
               resourceName={project.title}
               onClose={() => setIsDeleteOpen(false)}
               onConfirm={() =>
+                // first argument always is the argument that the function need (like id)
+                // if we need more than one argument, put them in a {}
                 removeProject(project._id, {
                   onSuccess: () => setIsDeleteOpen(false),
                 })

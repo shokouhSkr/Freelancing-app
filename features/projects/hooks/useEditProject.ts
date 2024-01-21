@@ -9,7 +9,7 @@ export const useEditProject = () => {
     mutationFn: editProject,
 
     onSuccess: (data) => {
-      console.log("data from editProject: ", data);
+      // console.log("data from editProject: ", data);
       toast.success(data.message);
 
       // After editing a project, we need fresh data. so we invalidate queries to fetch data again

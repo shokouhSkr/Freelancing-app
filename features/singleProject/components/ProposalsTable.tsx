@@ -11,14 +11,14 @@ const ProposalsTable = ({ proposals = [] }: { proposals: any }) => {
         <th>فریلنسر</th>
         <th>توضیحات</th>
         <th>زمان تحویل</th>
-        <th>هزینه</th>
+        <th>هزینه (تومان)</th>
         <th>وضعیت</th>
         <th>عملیات</th>
       </Table.Header>
 
       <Table.Body>
         {proposals.map((proposal: any, index: number) => {
-          <ProposalRow key={proposal._id} proposal={proposal} index={index} />;
+          return <ProposalRow key={proposal._id} proposal={proposal} index={index} />;
         })}
       </Table.Body>
     </Table>

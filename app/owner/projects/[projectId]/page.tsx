@@ -1,13 +1,13 @@
 "use client";
 
-import { ProposalsTable, SingleProjectHeader } from "@/features";
+import { Loading, ProposalsTable, SingleProjectHeader } from "@/features";
 import { useSingleProject } from "@/features/projects/hooks/useSingleProject";
 
 const SingleProjectPage = () => {
   const { isLoading, project } = useSingleProject();
   console.log("single project: ", project);
 
-  if (isLoading) return <h1>loading...</h1>;
+  if (isLoading) return <Loading color="#6d0909" size={11} />;
 
   return (
     <div>

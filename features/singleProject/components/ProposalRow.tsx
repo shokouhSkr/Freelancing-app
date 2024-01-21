@@ -4,7 +4,7 @@ import { useState } from "react";
 import { ChangeProposalStatus, Modal } from "@/features";
 import Table from "@/features/shared/components/Table";
 import { ProposalPropType } from "@/types";
-import { formatPrice, truncateText } from "@/utils/helpers";
+import { persianPriceFormatter, truncateText } from "@/utils/helpers";
 
 // status => 0: denied, 1:pending, 2:accepted
 const statusStyle = [
@@ -29,20 +29,20 @@ const ProposalRow = ({ proposal, index }: ProposalPropType) => {
   return (
     <Table.Row>
       <td>{index + 1}</td>
-      <td>{user.name}</td>
+      <td>{user.name || "نام تستی"}</td>
       <td>
         <p>{truncateText(description, 50)}</p>
       </td>
       <td>{duration} روز</td>
-      <td>{formatPrice(price)}</td>
+      <td>{persianPriceFormatter(price)}</td>
       <td>
         <span className={`badge ${statusStyle[status].className}`}>
           {statusStyle[status].label}
         </span>
       </td>
       <td>
-        <Modal title="تغییر وضعیت درخواست" open={open} onClose={() => setOpen(false)}>
-          <ChangeProposalStatus proposalId={proposal.id} onClose={() => setOpen(false)} />
+        <Modal title="تغییر وضعیت درخواست" isOpen={open} onClose={() => setOpen(false)}>
+          <ChangeProposalStatus proposalId={proposal._id} onClose={() => setOpen(false)} />
         </Modal>
         <button onClick={() => setOpen(true)}>تغییر وضعیت</button>
       </td>

@@ -10,12 +10,13 @@ import { CreateProjectFormPropType } from "@/types";
 import { useEditProject } from "../hooks/useEditProject";
 
 const CreateProjectForm = ({ onClose, projectToEdit = {} }: CreateProjectFormPropType) => {
-  const { _id: editId } = projectToEdit;
+  const { _id: editId } = projectToEdit; // projectToEdit is optional, if there is one, we destruct _id from it.
   const isEditingSession = Boolean(editId);
 
   const { title, description, budget, category, deadline, tags: projectTags } = projectToEdit;
   let editValues = {};
   if (isEditingSession) {
+    // we handle "tags" and "deadline" below in default values of useStates.
     editValues = {
       title,
       description,
@@ -24,7 +25,7 @@ const CreateProjectForm = ({ onClose, projectToEdit = {} }: CreateProjectFormPro
     };
   }
 
-  // register => with this, we don't need to pass onChange, value, onBlur, ... to the form. it does automatically
+  // register => with this, we don't need to pass onChange, value, onBlur, ... to the form. it does automatically by using "name" attribute.
   const {
     register,
     handleSubmit,

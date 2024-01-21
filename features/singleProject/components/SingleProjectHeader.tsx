@@ -11,9 +11,7 @@ const SingleProjectHeader = ({ project }: { project: any }) => {
       <button onClick={() => router.back()} className="w-5 h-5 text-secondary-500">
         <HiArrowRight />
       </button>
-      <h1 className="font-black text-secondary-700 text-xl">
-        لیست درخواست های {project?.title || "پروژه"}
-      </h1>
+      <h1 className="font-black text-secondary-700 text-xl">لیست درخواست های {project.title}</h1>
     </div>
   );
 };

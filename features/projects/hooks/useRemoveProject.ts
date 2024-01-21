@@ -8,8 +8,8 @@ export const useRemoveProject = () => {
   const { mutate: removeProject, isPending: isDeleting } = useMutation({
     mutationFn: removeOwnerProject,
     onSuccess: (data) => {
-      console.log("data from removeProject: ", data);
-      toast.success("پروژه با موفقیت حذف شد.");
+      // this data comes from createProject automatically
+      toast.success(data.message);
 
       // After deleting a project, we need fresh data. so we invalidate queries to fetch data again
       queryClient.invalidateQueries({

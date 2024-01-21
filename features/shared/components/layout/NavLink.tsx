@@ -13,7 +13,8 @@ const NavLink = ({
   icon: React.ReactElement;
 }) => {
   const currentPath = usePathname();
-  const isActive = currentPath === path;
+  const isActive = currentPath.startsWith(path);
+  // const isActive = currentPath === path;
 
   return (
     <li key={title}>

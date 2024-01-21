@@ -14,7 +14,7 @@ const DatePickerField = ({ label, date, setDate }: DatePickerFieldPropType) => {
         calendarPosition="bottom-center"
         value={date}
         onChange={(date) => setDate(date)}
-        format="YYYY-MM-DD"
+        format="YYYY/MM/DD"
         calendar={persian}
         locale={persian_fa}
       />

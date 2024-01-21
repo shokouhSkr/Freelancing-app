@@ -1,11 +1,12 @@
 "use client";
 
-import { Select } from "@/features";
+import { Loading, Select } from "@/features";
 import { ChangeProposalStatusPropType } from "@/types";
 import { useQueryClient } from "@tanstack/react-query";
 import { useForm } from "react-hook-form";
 import { useChangeProposalStatus } from "../hooks/useChangeProposalStatus";
 import { useParams } from "next/navigation";
+import { BeatLoader } from "react-spinners";
 
 const options = [
   {
@@ -26,10 +27,9 @@ const ChangeProposalStatus = ({ proposalId, onClose }: ChangeProposalStatusPropT
   const { register, handleSubmit } = useForm();
   const { changeProposalStatus, isUpdatingStatus } = useChangeProposalStatus();
   const { projectId } = useParams();
+
   const queryClient = useQueryClient();
-
   // type StatusType = "0" | "1" | "2";
-
   const onSubmit = (data: any) => {
     changeProposalStatus(
       { id: proposalId, data }, // {projectId, proposalId, status}
@@ -47,13 +47,9 @@ const ChangeProposalStatus = ({ proposalId, onClose }: ChangeProposalStatusPropT
       <form onSubmit={handleSubmit(onSubmit)}>
         <Select name="status" label="تغییر وضعیت" register={register} required options={options} />
         <div className="!mt-8">
-          {isUpdatingStatus ? (
-            <h1>loading...</h1>
-          ) : (
-            <button className="btn btn--primary w-full" type="submit">
-              تایید
-            </button>
-          )}
+          <button type="submit" className="btn btn--primary w-full">
+            {isUpdatingStatus ? <BeatLoader color="#333" size={8} /> : "تایید"}
+          </button>
         </div>
       </form>
     </div>

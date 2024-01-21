@@ -14,15 +14,15 @@ const ToggleProjectStatus = ({ project }: { project: any }) => {
 
   return (
     <div className="w-[5rem]">
-      {isToggling ? (
-        "loading..."
-      ) : (
-        <Toggle
-          label={project.status === "OPEN" ? "باز" : "بسته"}
-          enabled={project.status === "OPEN" ? true : false}
-          onChange={toggleHandler}
-        />
-      )}
+      {/* {isToggling ? (
+        "..."
+      ) : ( */}
+      <Toggle
+        label={project.status === "OPEN" ? "باز" : "بسته"}
+        enabled={project.status === "OPEN" ? true : false}
+        onChange={toggleHandler}
+      />
+      {/* )} */}
     </div>
   );
 };
