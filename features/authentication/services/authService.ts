@@ -18,3 +18,7 @@ export const completeProfile = (data: { name: string; email: string; role: strin
 export const getUser = () => {
   return http.get("/user/profile").then(({ data }) => data.data);
 };
+
+export const getLogoutApi = () => {
+  return http.post("/user/logout").then(({ data }) => data.data);
+};

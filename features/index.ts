@@ -5,7 +5,7 @@ import CompleteProfileForm from "./authentication/components/CompleteProfileForm
 import TextInput from "./shared/components/form/TextInput";
 import RadioInput from "./shared/components/form/RadioInput";
 import Container from "./shared/components/Container";
-import Header from "./shared/components/layout/Header";
+import Header from "./shared/components/layout/header/Header";
 import Sidebar from "./shared/components/layout/Sidebar";
 import ProjectsTable from "./projects/components/ProjectsTable";
 import Empty from "./shared/components/Empty";
@@ -25,8 +25,14 @@ import ChangeProposalStatus from "./singleProject/components/ChangeProposalStatu
 import NavLink from "./shared/components/layout/NavLink";
 import Table from "./shared/components/Table";
 import Loading from "./shared/components/Loading";
+import HeaderMenu from "./shared/components/layout/header/HeaderMenu";
+import UserAvatar from "./shared/components/layout/header/UserAvatar";
+import ThemeToggle from "./shared/components/ThemeToggle";
+import Logout from "./shared/components/layout/header/Logout";
 
 export {
+  Logout,
+  ThemeToggle,
   ChangeProposalStatus,
   AuthContainer,
   CheckOTPForm,
@@ -54,4 +60,6 @@ export {
   NavLink,
   Loading,
   Table,
+  HeaderMenu,
+  UserAvatar,
 };
