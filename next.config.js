@@ -7,6 +7,16 @@ const nextConfig = {
         destination: "/owner/dashboard",
         permanent: true,
       },
+      {
+        source: "/freelancer",
+        destination: "/freelancer/dashboard",
+        permanent: true,
+      },
+      {
+        source: "/admin",
+        destination: "/admin/dashboard",
+        permanent: true,
+      },
     ];
   },
 };

@@ -29,6 +29,9 @@ import HeaderMenu from "./shared/components/layout/header/HeaderMenu";
 import UserAvatar from "./shared/components/layout/header/UserAvatar";
 import ThemeToggle from "./shared/components/ThemeToggle";
 import Logout from "./shared/components/layout/header/Logout";
+import OwnerSidebar from "./owner/components/OwnerSidebar";
+import AdminSidebar from "./admin/components/AdminSidebar";
+import FreelancerSidebar from "./freelancer/components/FreelancerSidebar";
 
 export {
   Logout,
@@ -62,4 +65,7 @@ export {
   Table,
   HeaderMenu,
   UserAvatar,
+  OwnerSidebar,
+  AdminSidebar,
+  FreelancerSidebar,
 };
