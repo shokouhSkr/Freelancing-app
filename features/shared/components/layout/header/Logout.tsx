@@ -16,7 +16,7 @@ const Logout = () => {
       onClick={handleLogoutClick}
       className="text-primary-900 flex items-center hover:text-error transition-all duration-200"
     >
-      <HiArrowRightOnRectangle className="w-5 h-5" />
+      <HiArrowRightOnRectangle className="w-5 h-5 stroke-[0.5]" />
     </button>
   );
 };

@@ -1,15 +1,12 @@
+import { useDarkMode } from "@/context/DarkModeContext";
 import { FiSun, FiMoon } from "react-icons/fi";
 
-const ThemeToggle = ({
-  isDarkTheme,
-  handleTheme,
-}: {
-  isDarkTheme: Boolean;
-  handleTheme: () => void;
-}) => {
+const ThemeToggle = () => {
+  const { isDarkMode, toggleDarkMode } = useDarkMode();
+
   return (
-    <button onClick={handleTheme} className="flex items-center text-primary-900">
-      {isDarkTheme ? <FiSun className="w-5 h-5" /> : <FiMoon className="w-5 h-5" />}
+    <button onClick={toggleDarkMode} className="flex items-center text-primary-900">
+      {isDarkMode ? <FiSun className="w-5 h-5" /> : <FiMoon className="w-5 h-5" />}
     </button>
   );
 };

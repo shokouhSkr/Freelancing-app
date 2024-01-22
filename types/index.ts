@@ -89,3 +89,8 @@ export interface NavLink {
   path: string;
   icon: React.ReactElement;
 }
+
+export interface DarkModeContextType {
+  isDarkMode: boolean;
+  toggleDarkMode: () => void;
+}

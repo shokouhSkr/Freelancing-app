@@ -16,7 +16,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <div className="h-[100dvh] md:grid grid-cols-[15rem_1fr] grid-rows-[auto_1fr]">
             <Header />
             <Sidebar />
-            <div className="bg-gray-200 p-4">
+            <div className="bg-secondary-100 p-4">
               <div className="mx-auto max-w-screen-lg flex flex-col gap-12">{children}</div>
             </div>
           </div>

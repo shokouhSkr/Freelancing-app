@@ -11,6 +11,8 @@ function withOpacity(variableName: string) {
 }
 
 const config = {
+  // darkMode: ["class", '[class:"dark-mode"]'],
+  darkMode: "class",
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./features/**/*.{js,ts,jsx,tsx,mdx}",

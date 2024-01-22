@@ -7,8 +7,6 @@ import ThemeToggle from "../../ThemeToggle";
 import Logout from "./Logout";
 
 const HeaderMenu = () => {
-  const [isDarkMode, setIsDarkMode] = useState(false);
-
   return (
     <ul className="flex gap-4 items-center">
       <li>
@@ -17,7 +15,7 @@ const HeaderMenu = () => {
         </Link>
       </li>
       <li>
-        <ThemeToggle isDarkTheme={isDarkMode} handleTheme={() => setIsDarkMode(!isDarkMode)} />
+        <ThemeToggle />
       </li>
       <li>
         <Logout />
