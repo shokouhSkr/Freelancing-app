@@ -1,6 +1,6 @@
 import { ProjectsHeader, ProjectsTable } from "@/features";
 
-const ProjectsPage = () => {
+const OwnerProjectsPage = () => {
   return (
     <div>
       <ProjectsHeader />
@@ -9,4 +9,4 @@ const ProjectsPage = () => {
   );
 };
 
-export default ProjectsPage;
+export default OwnerProjectsPage;
