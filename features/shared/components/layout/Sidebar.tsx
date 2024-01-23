@@ -15,7 +15,7 @@ const Sidebar = () => {
   };
 
   return (
-    <aside className="bg-secondary-0 border-l border-secondary-200 row-start-1 row-span-2">
+    <aside className="hidden md:block bg-secondary-0 border-l border-secondary-200 row-start-1 row-span-2">
       <nav>{dynamicSidebar()}</nav>
     </aside>
   );

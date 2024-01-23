@@ -32,6 +32,9 @@ import Logout from "./shared/components/layout/header/Logout";
 import OwnerSidebar from "./owner/components/OwnerSidebar";
 import AdminSidebar from "./admin/components/AdminSidebar";
 import FreelancerSidebar from "./freelancer/components/FreelancerSidebar";
+import OwnerStats from "./owner/components/OwnerStats";
+import OwnerDashboardHeader from "./owner/components/OwnerDashboardHeader";
+import Stat from "./shared/components/Stat";
 
 export {
   Logout,
@@ -68,4 +71,7 @@ export {
   OwnerSidebar,
   AdminSidebar,
   FreelancerSidebar,
+  OwnerStats,
+  OwnerDashboardHeader,
+  Stat,
 };
