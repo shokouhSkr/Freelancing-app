@@ -1,6 +1,6 @@
 "use client";
 
-import { FreelancerDashboardHeader, FreelancerStats, Loading } from "@/features";
+import { DashboardHeader, FreelancerStats, Loading } from "@/features";
 import { useProposals } from "@/features/proposals/hooks/useProposals";
 
 const FreelancerDashboardPage = () => {
@@ -10,7 +10,7 @@ const FreelancerDashboardPage = () => {
 
   return (
     <div>
-      <FreelancerDashboardHeader />
+      <DashboardHeader />
       <FreelancerStats proposals={proposals} />
     </div>
   );

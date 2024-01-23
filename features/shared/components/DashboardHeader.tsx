@@ -1,4 +1,4 @@
-const OwnerDashboardHeader = () => {
+const DashboardHeader = () => {
   return (
     <div className="mb-8">
       <h1 className="font-bold text-2xl text-secondary-900 mb-2">آمار کلی</h1>
@@ -7,4 +7,4 @@ const OwnerDashboardHeader = () => {
   );
 };
 
-export default OwnerDashboardHeader;
+export default DashboardHeader;

@@ -1,12 +1,8 @@
-export const truncateText = (text: string, length: number): string => {
-  if (text.length < length) return text;
+const farsiDigits = ["۰", "۱", "۲", "۳", "۴", "۵", "۶", "۷", "۸", "۹"];
 
-  return text.slice(0, length) + "...";
-};
-
-export const toLocalDateShort = (date: string) => {
-  return new Date(date).toLocaleDateString("fa-IR");
-};
+export function toPersianNumbers(number: number) {
+  return number.toString().replace(/\d/g, (x) => farsiDigits[parseInt(x)]);
+}
 
 export const persianPriceFormatter = (price: number) => {
   let newPrice = String(price)
@@ -20,8 +16,17 @@ export const persianPriceFormatter = (price: number) => {
     .reverse()
     .join(",");
 
-  const farsiDigits = ["۰", "۱", "۲", "۳", "۴", "۵", "۶", "۷", "۸", "۹"];
   newPrice = newPrice.replace(/\d/g, (match) => farsiDigits[Number(match)]);
 
   return newPrice;
+};
+
+export const truncateText = (text: string, length: number): string => {
+  if (text.length < length) return text;
+
+  return text.slice(0, length) + "...";
+};
+
+export const toLocalDateShort = (date: string) => {
+  return new Date(date).toLocaleDateString("fa-IR");
 };

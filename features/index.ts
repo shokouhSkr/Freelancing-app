@@ -33,9 +33,9 @@ import OwnerSidebar from "./owner/components/OwnerSidebar";
 import AdminSidebar from "./admin/components/AdminSidebar";
 import FreelancerSidebar from "./freelancer/components/FreelancerSidebar";
 import OwnerStats from "./owner/components/OwnerStats";
-import OwnerDashboardHeader from "./owner/components/OwnerDashboardHeader";
+import OwnerDashboardHeader from "./shared/components/DashboardHeader";
 import Stat from "./shared/components/Stat";
-import FreelancerDashboardHeader from "./freelancer/components/FreelancerDashboardHeader";
+import DashboardHeader from "./shared/components/DashboardHeader";
 import FreelancerStats from "./freelancer/components/FreelancerStats";
 
 export {
@@ -76,6 +76,6 @@ export {
   OwnerStats,
   OwnerDashboardHeader,
   Stat,
-  FreelancerDashboardHeader,
+  DashboardHeader,
   FreelancerStats,
 };
