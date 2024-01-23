@@ -24,3 +24,7 @@ export const toggleStatusProject = ({ data, id }: { data: any; id: string }) => 
 export const removeOwnerProject = (id: string) => {
   return http.delete(`/project/${id}`).then(({ data }) => data.data);
 };
+
+export const getAllProjectsApi = () => {
+  return http.get("/project/list").then(({ data }) => data.data);
+};
