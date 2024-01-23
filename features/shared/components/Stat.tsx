@@ -1,3 +1,5 @@
+import { persianPriceFormatter } from "@/utils/helpers";
+
 const Stat = ({
   title,
   value,
@@ -20,7 +22,7 @@ const Stat = ({
       <div className={`rounded-full p-2 ${colors[color]}`}>{icon}</div>
       <div className="flex flex-col font-bold justify-around pr-3">
         <h5 className="text-lg text-secondary-500">{title}</h5>
-        <p className="text-3xl text-secondary-900">{value}</p>
+        <p className="text-3xl text-secondary-900">{persianPriceFormatter(value)}</p>
       </div>
     </div>
   );

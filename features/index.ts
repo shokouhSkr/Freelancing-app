@@ -35,6 +35,8 @@ import FreelancerSidebar from "./freelancer/components/FreelancerSidebar";
 import OwnerStats from "./owner/components/OwnerStats";
 import OwnerDashboardHeader from "./owner/components/OwnerDashboardHeader";
 import Stat from "./shared/components/Stat";
+import FreelancerDashboardHeader from "./freelancer/components/FreelancerDashboardHeader";
+import FreelancerStats from "./freelancer/components/FreelancerStats";
 
 export {
   Logout,
@@ -74,4 +76,6 @@ export {
   OwnerStats,
   OwnerDashboardHeader,
   Stat,
+  FreelancerDashboardHeader,
+  FreelancerStats,
 };

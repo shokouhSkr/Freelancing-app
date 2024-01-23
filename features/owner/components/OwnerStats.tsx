@@ -3,7 +3,7 @@ import { HiCollection, HiCurrencyDollar, HiOutlineViewGrid } from "react-icons/h
 
 const OwnerStats = ({ projects }: { projects: any }) => {
   const numOfProjects = projects.length;
-  const numOfAcceptedProjects = projects.map((project: any) => project.status === 2).length;
+  const numOfAcceptedProjects = projects.filter((project: any) => project.status === 2).length;
   const numOfProposals = projects.reduce((acc: any, cur: any) => cur.proposals?.length + acc, 0);
 
   return (
