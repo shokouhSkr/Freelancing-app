@@ -1,5 +1,5 @@
-import ProjectsHeader from "@/features/freelancer/components/ProjectsHeader";
-import ProjectsTable from "@/features/freelancer/components/ProjectsTable";
+import ProjectsHeader from "@/features/freelancer/components/projects/ProjectsHeader";
+import ProjectsTable from "@/features/freelancer/components/projects/ProjectsTable";
 
 const FreelancerProjectsPage = () => {
   return (

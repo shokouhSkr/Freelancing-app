@@ -37,6 +37,7 @@ import OwnerDashboardHeader from "./shared/components/DashboardHeader";
 import Stat from "./shared/components/Stat";
 import DashboardHeader from "./shared/components/DashboardHeader";
 import FreelancerStats from "./freelancer/components/FreelancerStats";
+import CreateProposal from "./freelancer/components/proposals/CreateProposal";
 
 export {
   Logout,
@@ -78,4 +79,5 @@ export {
   Stat,
   DashboardHeader,
   FreelancerStats,
+  CreateProposal,
 };

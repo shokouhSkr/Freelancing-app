@@ -32,7 +32,7 @@ const ChangeProposalStatus = ({ proposalId, onClose }: ChangeProposalStatusPropT
   // type StatusType = "0" | "1" | "2";
   const onSubmit = (data: any) => {
     changeProposalStatus(
-      { id: proposalId, data }, // {projectId, proposalId, status}
+      { proposalId, projectId, ...data }, // {projectId, proposalId, status}
       {
         onSuccess: () => {
           onClose();

@@ -1,4 +1,4 @@
-import ProposalsTable from "@/features/freelancer/components/ProposalsTable";
+import ProposalsTable from "@/features/freelancer/components/proposals/ProposalsTable";
 
 const FreelancerProposalsPage = () => {
   return (
