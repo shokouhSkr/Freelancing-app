@@ -10,10 +10,14 @@ GLOBAL STYLES
 @tailwind components;
 @tailwind utilities;
 
-/* Setting global font */
+/* Setting globals */
 html,
 body {
   font-family: "Vazir";
+}
+
+select {
+  border-left: 8px solid transparent;
 }
 
 /* 

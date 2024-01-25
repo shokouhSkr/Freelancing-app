@@ -14,9 +14,9 @@ export const useCategories = () => {
   const newCategories = rawCategories.map((item: any) => ({
     label: item.title,
     value: item._id,
-    // englishTitle: item.englishTitle,
   }));
 
+  // for filtering
   const transformedCategories = rawCategories.map((item: any) => ({
     label: item.title,
     value: item.englishTitle,

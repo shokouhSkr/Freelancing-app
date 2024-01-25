@@ -38,6 +38,9 @@ import Stat from "./shared/components/Stat";
 import DashboardHeader from "./shared/components/DashboardHeader";
 import FreelancerStats from "./freelancer/components/FreelancerStats";
 import CreateProposal from "./freelancer/components/proposals/CreateProposal";
+import FilterDropdown from "./shared/components/filter/FilterDropdown";
+import CustomSelect from "./shared/components/filter/CustomSelect";
+import FilterButtons from "./shared/components/filter/FilterButtons";
 
 export {
   Logout,
@@ -80,4 +83,7 @@ export {
   DashboardHeader,
   FreelancerStats,
   CreateProposal,
+  FilterDropdown,
+  CustomSelect,
+  FilterButtons,
 };

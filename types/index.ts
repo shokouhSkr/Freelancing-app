@@ -94,3 +94,14 @@ export interface DarkModeContextType {
   isDarkMode: boolean;
   toggleDarkMode: () => void;
 }
+
+export interface FilterPropType {
+  options: { value: string; label: string }[];
+  filterField: string;
+}
+
+export interface CustomSelectPropType {
+  options: { value: string; label: string }[];
+  value: string;
+  onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
+}
