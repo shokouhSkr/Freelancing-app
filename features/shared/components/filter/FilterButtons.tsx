@@ -7,6 +7,7 @@ const FilterButtons = ({ filterField, options }: FilterPropType) => {
   const searchParams = useSearchParams();
   const currentFilterValue = searchParams.get(filterField) || options[0].value;
 
+  // Update the browser history with the new URL
   const handleClick = (value: string) => {
     const updatedParams = new URLSearchParams(searchParams.toString());
     updatedParams.set(filterField, value);

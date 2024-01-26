@@ -9,7 +9,7 @@ const sortOptions = [
 ];
 
 const statusOptions = [
-  { value: "all", label: "همه" },
+  { value: "ALL", label: "همه" },
   { value: "OPEN", label: "باز" },
   { value: "CLOSED", label: "بسته" },
 ];
@@ -26,7 +26,7 @@ const ProjectsHeader = () => {
       <div className="flex items-center gap-4">
         <FilterDropdown
           filterField="category"
-          options={[{ value: "all", label: "همه دسته ها" }, ...categories]}
+          options={[{ value: "ALL", label: "همه دسته ها" }, ...categories]}
         />
         <FilterDropdown filterField="sort" options={sortOptions} />
       </div>

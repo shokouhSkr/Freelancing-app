@@ -25,6 +25,6 @@ export const removeOwnerProject = (id: string) => {
   return http.delete(`/project/${id}`).then(({ data }) => data.data);
 };
 
-export const getAllProjectsApi = () => {
-  return http.get("/project/list").then(({ data }) => data.data);
+export const getAllProjectsApi = (queryStr: string) => {
+  return http.get(`/project/list?${queryStr}`).then(({ data }) => data.data);
 };
