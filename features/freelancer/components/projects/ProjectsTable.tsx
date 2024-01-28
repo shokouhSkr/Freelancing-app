@@ -16,7 +16,7 @@ const ProjectsTable = () => {
       </div>
     );
 
-  if (!allProjects) {
+  if (!allProjects.length) {
     return <Empty resourceName="پروژه ای" />;
   }
 

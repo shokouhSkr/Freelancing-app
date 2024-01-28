@@ -41,6 +41,7 @@ import CreateProposal from "./freelancer/components/proposals/CreateProposal";
 import FilterDropdown from "./shared/components/filter/FilterDropdown";
 import CustomSelect from "./shared/components/filter/CustomSelect";
 import FilterButtons from "./shared/components/filter/FilterButtons";
+import ProtectedRoute from "./shared/components/ProtectedRoute";
 
 export {
   Logout,
@@ -86,4 +87,5 @@ export {
   FilterDropdown,
   CustomSelect,
   FilterButtons,
+  ProtectedRoute,
 };
