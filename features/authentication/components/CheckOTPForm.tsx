@@ -35,13 +35,16 @@ const CheckOTPForm = ({ phoneNumber, onBack, onResendOTP, otpResponse }: CheckOT
         router.push("/complete-profile");
         return;
       }
+
       if (user.statue !== 2) {
         toast("پروفایل شما در انتظار تایید است", { icon: "😍" });
         router.push("/");
         return;
       }
+
       if (user.role === "OWNER") return router.push("/owner");
       if (user.role === "FREELANCER") return router.push("/freelancer");
+      if (user.role === "ADMIN") return router.push("/admin");
     } catch (error: any) {
       toast.error(error?.response?.data?.message);
     }
