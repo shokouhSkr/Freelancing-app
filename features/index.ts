@@ -42,6 +42,9 @@ import FilterDropdown from "./shared/components/filter/FilterDropdown";
 import CustomSelect from "./shared/components/filter/CustomSelect";
 import FilterButtons from "./shared/components/filter/FilterButtons";
 import ProtectedRoute from "./shared/components/ProtectedRoute";
+import UsersTable from "./admin/components/users/UsersTable";
+import UserRow from "./admin/components/users/UserRow";
+import ChangeUserStatus from "./admin/components/users/ChangeUserStatus";
 
 export {
   Logout,
@@ -88,4 +91,7 @@ export {
   CustomSelect,
   FilterButtons,
   ProtectedRoute,
+  UsersTable,
+  UserRow,
+  ChangeUserStatus,
 };

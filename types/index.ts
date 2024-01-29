@@ -19,6 +19,11 @@ export interface ChangeProposalStatusPropType {
   onClose: () => void;
 }
 
+export interface ChangeUserStatusPropType {
+  userId: string;
+  onClose: () => void;
+}
+
 export interface ModalPropType {
   isOpen: boolean;
   onClose: () => void;

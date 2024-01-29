@@ -1,23 +1,8 @@
 "use client";
 
 import { Table } from "@/features";
+import { statusStyle } from "@/utils/constants";
 import { truncateText, persianPriceFormatter, toPersianNumbers } from "@/utils/helpers";
-
-// status => 0: denied, 1:pending, 2:accepted
-const statusStyle = [
-  {
-    label: "رد شده",
-    className: "badge--danger",
-  },
-  {
-    label: "در انتظار تایید",
-    className: "badge--secondary",
-  },
-  {
-    label: "تایید شده",
-    className: "badge--success",
-  },
-];
 
 const ProposalRow = ({ proposal, index }: { proposal: any; index: number }) => {
   const { description, duration, price, status, _id } = proposal;

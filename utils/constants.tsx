@@ -1,5 +1,5 @@
 import { NavLink } from "@/types";
-import { HiCollection, HiHome, HiOutlineViewGrid, HiUser } from "react-icons/hi";
+import { HiCollection, HiHome, HiOutlineViewGrid, HiUsers } from "react-icons/hi";
 
 export const RESET_TIME = 90;
 
@@ -16,7 +16,23 @@ export const freelancerNavLinks: NavLink[] = [
 
 export const adminNavLinks: NavLink[] = [
   { title: "داشبورد", path: "/admin/dashboard", icon: <HiHome /> },
-  { title: "کاربران", path: "/admin/users", icon: <HiUser /> },
+  { title: "کاربران", path: "/admin/users", icon: <HiUsers /> },
   { title: "پروژه ها", path: "/admin/projects", icon: <HiOutlineViewGrid /> },
   { title: "درخواست ها", path: "/admin/proposals", icon: <HiCollection /> },
+];
+
+// status => 0: denied, 1:pending, 2:accepted
+export const statusStyle = [
+  {
+    label: "رد شده",
+    className: "badge--danger",
+  },
+  {
+    label: "در انتظار تایید",
+    className: "badge--secondary",
+  },
+  {
+    label: "تایید شده",
+    className: "badge--success",
+  },
 ];
