@@ -13,13 +13,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="fa" dir="rtl">
       <body>
         <Providers>
-          <div className="md:grid grid-rows-[auto_1fr] grid-cols-[15rem_1fr]">
-            <Header />
-            <Sidebar />
-            <div className="bg-secondary-100 h-[calc(100dvh-68px)] p-8 overflow-y-auto">
-              <div className="mx-auto max-w-screen-lg flex flex-col gap-y-12">{children}</div>
-            </div>
-          </div>
+          <div>{children}</div>
         </Providers>
       </body>
     </html>
